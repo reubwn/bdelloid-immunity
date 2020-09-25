@@ -22,6 +22,8 @@ USAGE:
 OPTIONS:
   -t|--transcripts   [FILE] : transcriptome fasta file [required]
   -d|--DE_files      [FILE] : DE results file(s) to be parsed and collated
+  -r|--method      [STRING] : method used to run DE for format [DESeq2|limma]
+  -g|--HGT_file      [FILE] : HGT_locations.txt file
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
@@ -30,15 +32,18 @@ OPTIONS:
   -h|--help                 : prints this help message
 \n";
 
-my ($transcripts_file,$col_map_file,$help);
-my (@DE_files, @other_files);
+my ($transcripts_file, $col_map_file, $help);
+my (@DE_files, @HGT_files, @other_files);
 my $out_file = "collated_DE_results.tab";
+my $method = "DESeq2";
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
 
 GetOptions (
   't|transcripts=s'    => \$transcripts_file,
   'd|DE_files:s{1,}'   => \@DE_files,
+  'r|method:s'         => \$method,
+  'g|HGT_file:s{,}'    => \@HGT_files,
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
@@ -63,7 +68,7 @@ if ( $col_map_file ) {
   }
   close $fh;
 } else {
-  foreach (@DE_files, @other_files) {
+  foreach (@DE_files, @HGT_files, @other_files) {
     my $new_name = `basename $_`;
     $col_map{$_} = $new_name;
   }
@@ -110,39 +115,67 @@ foreach my $current_file (@DE_files) {
         ## feature is sig up-regulated
         if ( $F[6] > $logfc_threshold ) {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
-        } # else {
-        #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-        # }
+        } else {
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+        }
         ## feature is sig down-regulated
         if ( $F[6] < -$logfc_threshold ) {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
-        } # else {
-        #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
-        # }
+        } else {
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+        }
       }
-    } # else {
-    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
-    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
-    # }
-
+    } else {
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+    }
   }
   close $fh;
 }
 
-## parse features from other results file(s)
-print STDERR "[INFO] Number of other files to collate: ".scalar(@other_files)."\n";
-foreach my $current_file (@other_files) {
-  print STDERR "[INFO]   $current_file\n";
-  open (my $fh, "$current_file") or die $!;
-  while (my $line = <$fh>) {
-    # next if $. == 1; ## header
-    chomp $line;
-    my @F = split (m/\s+/, $line);
+if (scalar(@HGT_files)>0) {
+  ## parse features from HGT_locations.txt file(s)
+  print STDERR "[INFO] Number of HGT files to collate: ".scalar(@HGT_files)."\n";
+  foreach my $current_file (@HGT_files) {
+    print STDERR "[INFO]   $current_file\n";
 
-    ## whatever is in the file, we take a 1/0 based on the feature name in col0
-    $features_hash{$F[0]}{"$col_map{$current_file}.is_feature"} = "1";
+    open (my $fh, "$current_file") or die $!;
+    while (my $line = <$fh>) {
+      # next if $. == 1; ## header
+      chomp $line;
+      my @F = split (m/\s+/, $line);
 
+      ## based on format of HGT_locations.txt file
+      if ($F[8] eq "NA") {
+        ## no information (eg no BLAST hit)
+        $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "NA";
+      } elsif ($F[9] == 2) {
+        ## good evidence for HGT
+        $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "1";
+      } else {
+        ## good evidence for not-HGT
+        $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "0";
+      }
+    }
+    close $fh;
+  }
+}
+
+if (scalar(@other_files)>0) {
+  ## parse features from other results file(s)
+  print STDERR "[INFO] Number of other files to collate: ".scalar(@other_files)."\n";
+  foreach my $current_file (@other_files) {
+    print STDERR "[INFO]   $current_file\n";
+    open (my $fh, "$current_file") or die $!;
+    while (my $line = <$fh>) {
+      # next if $. == 1; ## header
+      chomp $line;
+      my @F = split (m/\s+/, $line);
+      ## whatever is in the file, we take a 1/0 based on the feature name in col0
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_feature"} = "1";
+    }
+    close $fh;
   }
 }
 
@@ -167,7 +200,7 @@ foreach my $feature (nsort keys %features_hash) {
     if (exists $hash{$key}) {
       print $fh "\t$hash{$key}";
     } else {
-      print $fh "\t0";
+      print $fh "\tNA";
     }
   }
   print $fh "\n";
