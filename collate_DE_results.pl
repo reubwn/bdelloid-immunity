@@ -148,6 +148,7 @@ foreach my $current_file (@other_files) {
 
 ## pull out all the keys
 my %keys;
+print STDERR "[INFO] Collecting the keys...\n";
 foreach (keys %features_hash) {
   foreach (keys %{$features_hash{$_}}) {
     $keys{$_}++;
@@ -156,6 +157,7 @@ foreach (keys %features_hash) {
 # print STDOUT join ("\t", keys %keys) . "\n";
 
 ## print to file
+print STDERR "[INFO] Printing results to '$out_file'\n";
 open (my $fh, ">$out_file") or die $!;
 print $fh join ("\t", "feature", (nsort keys %keys)) . "\n";
 foreach my $feature (nsort keys %features_hash) {
@@ -171,5 +173,8 @@ foreach my $feature (nsort keys %features_hash) {
   print $fh "\n";
 }
 close $fh;
+
+print STDERR "[INFO] Done! ".`date`;
+
 
 # print Dumper (\%features_hash);
