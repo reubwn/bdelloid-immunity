@@ -34,8 +34,8 @@ OPTIONS:
 
 my ($transcripts_file, $col_map_file, $help);
 my (@DE_files, @HGT_files, @other_files);
-my $out_file = "collated_DE_results.tab";
 my $method = "DESeq2";
+my $out_file = "collated_${method}_results.tab";
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
 
