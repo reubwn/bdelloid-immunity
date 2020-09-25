@@ -163,23 +163,28 @@ foreach my $current_file (@other_files) {
   }
 }
 
+## pull out all the keys
 my %keys;
 foreach (keys %features_hash) {
   foreach (keys %{$features_hash{$_}}) {
     $keys{$_}++;
-    # print "$_\n";
   }
 }
-print STDOUT join ("\t", keys %keys) . "\n";
+# print STDOUT join ("\t", keys %keys) . "\n";
 
-# print STDOUT join ("\t", "feature", (nsort values %col_map)) . "\n";
-# foreach my $feature (nsort keys %features_hash) {
-#   print STDOUT "$feature\t";
-#   foreach (nsort values %col_map) {
-#
-#   }
-#   print STDOUT "\n";
-# }
-
+## print
+print STDOUT join ("\t", "feature", (nsort keys %keys)) . "\n";
+foreach my $feature (nsort keys %features_hash) {
+  print STDOUT "$feature";
+  my %hash = %{$features_hash{$feature}};
+  foreach my $key (nsort keys %keys) {
+    if (exists $hash{$key}) {
+      print STDOUT "\t$hash{$key}";
+    } else {
+      print STDOUT "\tNA";
+    }
+  }
+  print STDOUT "\n";
+}
 
 print Dumper (\%features_hash);
