@@ -40,7 +40,7 @@ GetOptions (
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
-  'm|col_mapping:s{,}' => \@column_mapping,
+  'm|col_mapping:s{,}' => \$col_map_file,
   'h|help'             => \$help
 );
 
