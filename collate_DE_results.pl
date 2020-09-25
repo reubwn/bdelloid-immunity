@@ -52,8 +52,6 @@ my %features_hash;
 ## make %col_mapping
 my %col_map;
 my @all_files = (@DE_files, @other_files);
-print "all_files ".scalar(@all_files)."\n";
-print "column_mapping ".scalar(@column_mapping)."\n";
 for my $i (0..$#all_files) {
   if (scalar(@column_mapping) == scalar(@all_files)) {
     $col_map{$all_files[$i]} = $column_mapping[$i];
@@ -74,23 +72,23 @@ print STDERR "[INFO] Number of sequences in $transcripts_file: ".scalar(keys %fe
 
 ## parse features from DE results file(s)
 print STDERR "[INFO] Number of DE analysis files to collate: ".scalar(@DE_files)."\n";
-foreach my $current_DE_file (@DE_files) {
-  print STDERR "[INFO] $current_DE_file\n";
-  open (my $fh, "$current_DE_file") or die $!;
+foreach my $current_file (@all_files) {
+  print STDERR "[INFO] $current_file\n";
+  open (my $fh, "$current_file") or die $!;
   while (my $line = <$fh>) {
     next if $. == 1; ## header
     chomp $line;
     my @F = split (m/\s+/, $line);
 
     ## if current gene has DE result
-    push ( @{$features_hash{$F[0]}{log2FC}}, $F[6] );
-    push ( @{$features_hash{$F[0]}{padj}}, $F[10] );
+    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{log2FC}}, $F[6] );
+    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{padj}}, $F[10] );
 
     ## can't take log of 0 (Inf), so replace with some very small number
     if ($F[10] == 0) {
-      push ( @{$features_hash{$F[0]}{negLogPadj}}, -log(5e-324)/log(10) );
+      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log(5e-324)/log(10) );
     } else {
-      push ( @{$features_hash{$F[0]}{negLogPadj}}, -log($F[10])/log(10) ); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log($F[10])/log(10) ); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
     }
 
     ## is feature DE based on thresholds?
@@ -98,22 +96,22 @@ foreach my $current_DE_file (@DE_files) {
       ## feature is significant
       if ( abs($F[6]) > $logfc_threshold ) {
         ## feature is DE
-        push ( @{$features_hash{$F[0]}{is_DE}}, "1" );
+        push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE}}, "1" );
         ## feature is sig up-regulated
         if ( $F[6] > $logfc_threshold ) {
-          push ( @{$features_hash{$F[0]}{is_DE_up}}, "1" );
+          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "1" );
         } else {
-          push ( @{$features_hash{$F[0]}{is_DE_up}}, "0" );
+          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "0" );
         }
         ## feature is sig down-regulated
         if ( $F[6] < -$logfc_threshold ) {
-          push ( @{$features_hash{$F[0]}{is_DE_down}}, "1" );
+          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "1" );
         } else {
-          push ( @{$features_hash{$F[0]}{is_DE_down}}, "0" );
+          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "0" );
         }
       }
     } else {
-      push ( @{$features_hash{$F[0]}{is_DE}}, "0" );
+      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE}}, "0" );
     }
 
   }
