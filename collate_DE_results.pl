@@ -61,7 +61,7 @@ foreach my $current_DE_file (@DE_files) {
   open (my $fh, "$current_DE_file") or die $!;
   while (my $line = <$fh>) {
     next if $. == 1; ## header
-    chomp;
+    chomp $line;
     my @F = split (m/\s+/, $line);
     if ( exists($features_hash{$F[0]}) ) {
       ## if current gene has DE result
