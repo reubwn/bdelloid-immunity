@@ -147,14 +147,14 @@ if (scalar(@HGT_files)>0) {
       my @F = split (m/\s+/, $line);
 
       ## based on format of HGT_locations.txt file
-      if ($F[8] eq "NA") {
+      if ($F[7] eq "NA") {
         ## no information (eg no BLAST hit)
         $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "NA";
-      } elsif ($F[9] == 2) {
+      } elsif ($F[8] == 2) {
         ## good evidence for HGT
         $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "1";
       } else {
-        ## good evidence for not-HGT
+        ## otherwise not-HGT
         $features_hash{$F[3]}{"is.$col_map{$current_file}"} = "0";
       }
     }
