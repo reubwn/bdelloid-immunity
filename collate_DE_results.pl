@@ -52,7 +52,8 @@ my %features_hash;
 ## make %col_mapping
 my %col_map;
 my @all_files = (@DE_files, @other_files);
-print "@all_files\n";
+print "all_files ".scalar(@all_files)."\n";
+print "column_mapping ".scalar(@column_mapping)."\n";
 for my $i (0..$#all_files) {
   if (scalar(@column_mapping) == scalar(@all_files)) {
     $col_map{$all_files[$i]} = $column_mapping[$i];
