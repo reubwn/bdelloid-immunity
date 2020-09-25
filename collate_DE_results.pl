@@ -63,7 +63,7 @@ foreach my $current_DE_file (@DE_files) {
     next if $. == 1; ## header
     chomp $line;
     my @F = split (m/\s+/, $line);
-    if ( exists($features_hash{$F[0]}) ) {
+    # if ( exists($features_hash{$F[0]}) ) {
       ## if current gene has DE result
       push ( @{$features_hash{$F[0]}{log2FC}}, $F[6] );
       push ( @{$features_hash{$F[0]}{padj}}, $F[10] );
@@ -77,12 +77,12 @@ foreach my $current_DE_file (@DE_files) {
 
       ## is DE expressed based on thresholds
 
-    } else {
-      ## if not, populate with NAs
-      push ( @{$features_hash{$F[0]}{log2FC}}, "NA" );
-      push ( @{$features_hash{$F[0]}{padj}}, "NA" );
-      push ( @{$features_hash{$F[0]}{negLogPadj}}, "NA" );
-    }
+    # } else {
+    #   ## if not, populate with NAs
+    #   push ( @{$features_hash{$F[0]}{log2FC}}, "NA" );
+    #   push ( @{$features_hash{$F[0]}{padj}}, "NA" );
+    #   push ( @{$features_hash{$F[0]}{negLogPadj}}, "NA" );
+    # }
   }
   close $fh;
 }
