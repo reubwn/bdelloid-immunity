@@ -25,12 +25,12 @@ OPTIONS:
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
-  -m|--col_mapping [STRING] : replacement string for filename -> column names
+  -m|--col_mapping   [FILE] : tab-delim file with replacements for filename <-> column names
   -h|--help                 : prints this help message
 \n";
 
-my ($transcripts_file,$help);
-my (@DE_files, @other_files, @column_mapping);
+my ($transcripts_file,$col_map_file,$help);
+my (@DE_files, @other_files);
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
 
@@ -51,14 +51,28 @@ my %features_hash;
 
 ## make %col_mapping
 my %col_map;
-my @all_files = (@DE_files, @other_files);
-for my $i (0..$#all_files) {
-  if (scalar(@column_mapping) == scalar(@all_files)) {
-    $col_map{$all_files[$i]} = $column_mapping[$i];
-  } else {
-    $col_map{$all_files[$i]} = $all_files[$i];
+if ( $col_map_file ) {
+  open (my $fh, $col_map_file) or die $!;
+  while (<$fh>) {
+    chomp;
+    my @F = split (m/\s+/, $_);
+    $col_map{$F[0]} = $F[1];
+  }
+  close $fh;
+} else {
+  foreach (@DE_files, @other_files) {
+    my $new_name = `basename $_`;
+    $col_map{$_} = $new_name;
   }
 }
+# my @all_files = (@DE_files, @other_files);
+# for my $i (0..$#all_files) {
+#   if (scalar(@column_mapping) == scalar(@all_files)) {
+#     $col_map{$all_files[$i]} = $column_mapping[$i];
+#   } else {
+#     $col_map{$all_files[$i]} = $all_files[$i];
+#   }
+# }
 
 print Dumper (\%col_map);
 
@@ -72,7 +86,7 @@ print STDERR "[INFO] Number of sequences in $transcripts_file: ".scalar(keys %fe
 
 ## parse features from DE results file(s)
 print STDERR "[INFO] Number of DE analysis files to collate: ".scalar(@DE_files)."\n";
-foreach my $current_file (@all_files) {
+foreach my $current_file (@DE_files) {
   print STDERR "[INFO] $current_file\n";
   open (my $fh, "$current_file") or die $!;
   while (my $line = <$fh>) {
@@ -112,10 +126,29 @@ foreach my $current_file (@all_files) {
       }
     } else {
       push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE}}, "0" );
+      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "0" );
+      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "0" );
     }
 
   }
   close $fh;
 }
+
+## parse features from other results file(s)
+print STDERR "[INFO] Number of other files to collate: ".scalar(@other_files)."\n";
+foreach my $current_file (@other_files) {
+  print STDERR "[INFO] $current_file\n";
+  open (my $fh, "$current_file") or die $!;
+  while (my $line = <$fh>) {
+    next if $. == 1; ## header
+    chomp $line;
+    my @F = split (m/\s+/, $line);
+
+    ## whatever is in the file, we take a 1/0 based on the feature name in col0
+    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_${col_map{$current_file}}}}, "1" );
+
+  }
+}
+
 
 print Dumper (\%features_hash);
