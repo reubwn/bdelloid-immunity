@@ -81,7 +81,7 @@ print STDERR "[INFO] Number of sequences in $transcripts_file: ".scalar(keys %fe
 ## parse features from DE results file(s)
 print STDERR "[INFO] Number of DE analysis files to collate: ".scalar(@DE_files)."\n";
 foreach my $current_file (@DE_files) {
-  print STDERR "[INFO] $current_file\n";
+  print STDERR "[INFO]   $current_file\n";
   open (my $fh, "$current_file") or die $!;
   while (my $line = <$fh>) {
     next if $. == 1; ## header
@@ -133,7 +133,7 @@ foreach my $current_file (@DE_files) {
 ## parse features from other results file(s)
 print STDERR "[INFO] Number of other files to collate: ".scalar(@other_files)."\n";
 foreach my $current_file (@other_files) {
-  print STDERR "[INFO] $current_file\n";
+  print STDERR "[INFO]   $current_file\n";
   open (my $fh, "$current_file") or die $!;
   while (my $line = <$fh>) {
     # next if $. == 1; ## header
