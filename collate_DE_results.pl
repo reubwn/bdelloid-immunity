@@ -124,8 +124,14 @@ foreach my $current_file (@DE_files) {
         } else {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
         }
+      } else {
+        ## catch features with significant DE but not above FC threshold
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
       }
     } else {
+      ## catch genes with non-significant DE regardless of FC
       $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
       $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
       $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
@@ -200,6 +206,7 @@ foreach my $feature (nsort keys %features_hash) {
     if (exists $hash{$key}) {
       print $fh "\t$hash{$key}";
     } else {
+      ## pad missing information with NA
       print $fh "\tNA";
     }
   }
