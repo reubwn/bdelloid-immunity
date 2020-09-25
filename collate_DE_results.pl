@@ -26,11 +26,13 @@ OPTIONS:
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
   -m|--col_mapping   [FILE] : tab-delim file with replacements for filename <-> column names
+  -o|--out           [FILE] : outfile to write
   -h|--help                 : prints this help message
 \n";
 
 my ($transcripts_file,$col_map_file,$help);
 my (@DE_files, @other_files);
+my $out_file = "collated_DE_results.tab";
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
 
@@ -40,7 +42,8 @@ GetOptions (
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
-  'm|col_mapping:s{,}' => \$col_map_file,
+  'm|col_mapping:s'    => \$col_map_file,
+  'o|out:s'            => \$out_file,
   'h|help'             => \$help
 );
 
@@ -65,16 +68,7 @@ if ( $col_map_file ) {
     $col_map{$_} = $new_name;
   }
 }
-# my @all_files = (@DE_files, @other_files);
-# for my $i (0..$#all_files) {
-#   if (scalar(@column_mapping) == scalar(@all_files)) {
-#     $col_map{$all_files[$i]} = $column_mapping[$i];
-#   } else {
-#     $col_map{$all_files[$i]} = $all_files[$i];
-#   }
-# }
-
-print Dumper (\%col_map);
+# print Dumper (\%col_map);
 
 ## parse feature names from fasta
 print STDERR "[INFO] Parsing sequences in file: $transcripts_file\n";
@@ -96,17 +90,6 @@ foreach my $current_file (@DE_files) {
 
     die "[ERROR] File doesn't look like a DESEq2-style DE results file! (11-cols)\n" if (scalar(@F) != 11);
 
-    # ## if current gene has DE result
-    # push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{log2FC}}, $F[6] );
-    # push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{padj}}, $F[10] );
-    #
-    # ## can't take log of 0 (Inf), so replace with some very small number
-    # if ($F[10] == 0) {
-    #   push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log(5e-324)/log(10) );
-    # } else {
-    #   push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log($F[10])/log(10) ); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
-    # }
-
     ## if current gene has DE result
     $features_hash{$F[0]}{"$col_map{$current_file}.log2FC"} = $F[6];
     $features_hash{$F[0]}{"$col_map{$current_file}.padj"} = $F[10];
@@ -127,21 +110,21 @@ foreach my $current_file (@DE_files) {
         ## feature is sig up-regulated
         if ( $F[6] > $logfc_threshold ) {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
-        } else {
-          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-        }
+        } # else {
+        #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+        # }
         ## feature is sig down-regulated
         if ( $F[6] < -$logfc_threshold ) {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
-        } else {
-          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
-        }
+        } # else {
+        #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+        # }
       }
-    } else {
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
-    }
+    } # else {
+    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+    #   $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+    # }
 
   }
   close $fh;
@@ -172,19 +155,21 @@ foreach (keys %features_hash) {
 }
 # print STDOUT join ("\t", keys %keys) . "\n";
 
-## print
-print STDOUT join ("\t", "feature", (nsort keys %keys)) . "\n";
+## print to file
+open (my $fh, ">$out_file") or die $!;
+print $fh join ("\t", "feature", (nsort keys %keys)) . "\n";
 foreach my $feature (nsort keys %features_hash) {
-  print STDOUT "$feature";
+  print $fh "$feature";
   my %hash = %{$features_hash{$feature}};
   foreach my $key (nsort keys %keys) {
     if (exists $hash{$key}) {
-      print STDOUT "\t$hash{$key}";
+      print $fh "\t$hash{$key}";
     } else {
-      print STDOUT "\tNA";
+      print $fh "\t0";
     }
   }
-  print STDOUT "\n";
+  print $fh "\n";
 }
+close $fh;
 
-print Dumper (\%features_hash);
+# print Dumper (\%features_hash);
