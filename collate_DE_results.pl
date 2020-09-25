@@ -23,7 +23,7 @@ OPTIONS:
   -t|--transcripts   [FILE] : transcriptome fasta file [required]
   -d|--DE_files      [FILE] : DE results file(s) to be parsed and collated
   -r|--method      [STRING] : method used to run DE for format [DESeq2|limma]
-  -g|--HGT_file      [FILE] : HGT_locations.txt file
+  -g|--HGT_files     [FILE] : HGT_locations.txt file
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
@@ -43,7 +43,7 @@ GetOptions (
   't|transcripts=s'    => \$transcripts_file,
   'd|DE_files:s{1,}'   => \@DE_files,
   'r|method:s'         => \$method,
-  'g|HGT_file:s{,}'    => \@HGT_files,
+  'g|HGT_files:s{,}'   => \@HGT_files,
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
