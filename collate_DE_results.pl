@@ -94,15 +94,28 @@ foreach my $current_file (@DE_files) {
     chomp $line;
     my @F = split (m/\s+/, $line);
 
+    die "[ERROR] File doesn't look like a DESEq2-style DE results file! (11-cols)\n" if (scalar(@F) != 11);
+
+    # ## if current gene has DE result
+    # push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{log2FC}}, $F[6] );
+    # push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{padj}}, $F[10] );
+    #
+    # ## can't take log of 0 (Inf), so replace with some very small number
+    # if ($F[10] == 0) {
+    #   push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log(5e-324)/log(10) );
+    # } else {
+    #   push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log($F[10])/log(10) ); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+    # }
+
     ## if current gene has DE result
-    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{log2FC}}, $F[6] );
-    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{padj}}, $F[10] );
+    $features_hash{$F[0]}{"$col_map{$current_file}.log2FC"} = $F[6];
+    $features_hash{$F[0]}{"$col_map{$current_file}.padj"} = $F[10];
 
     ## can't take log of 0 (Inf), so replace with some very small number
     if ($F[10] == 0) {
-      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log(5e-324)/log(10) );
+      $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log(5e-324)/log(10);
     } else {
-      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{negLogPadj}}, -log($F[10])/log(10) ); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+      $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log($F[10])/log(10); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
     }
 
     ## is feature DE based on thresholds?
@@ -146,6 +159,14 @@ foreach my $current_file (@other_files) {
 
     ## whatever is in the file, we take a 1/0 based on the feature name in col0
     push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{"is_$col_map{$current_file}"}}, "1" );
+
+  }
+}
+
+print STDOUT join ("\t", "feature", (nsort values %col_map)) . "\n";
+foreach my $feature (nsort keys %features_hash) {
+  print STDOUT "$feature\t";
+  foreach (nsort values %col_map) {
 
   }
 }
