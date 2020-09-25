@@ -163,6 +163,15 @@ foreach my $current_file (@other_files) {
   }
 }
 
+my %keys;
+foreach (keys %features_hash) {
+  foreach (keys %{$features_hash{$_}}) {
+    $keys{$_}++;
+    # print "$_\n";
+  }
+}
+print STDOUT join ("\t", keys %keys) . "\n";
+
 # print STDOUT join ("\t", "feature", (nsort values %col_map)) . "\n";
 # foreach my $feature (nsort keys %features_hash) {
 #   print STDOUT "$feature\t";
