@@ -142,7 +142,7 @@ if (scalar(@HGT_files)>0) {
 
     open (my $fh, "$current_file") or die $!;
     while (my $line = <$fh>) {
-      # next if $. == 1; ## header
+      next if $. == 1; ## header
       chomp $line;
       my @F = split (m/\s+/, $line);
 
@@ -169,7 +169,7 @@ if (scalar(@other_files)>0) {
     print STDERR "[INFO]   $current_file\n";
     open (my $fh, "$current_file") or die $!;
     while (my $line = <$fh>) {
-      # next if $. == 1; ## header
+      next if $. == 1; ## assume header!
       chomp $line;
       my @F = split (m/\s+/, $line);
       ## whatever is in the file, we take a 1/0 based on the feature name in col0
