@@ -123,24 +123,24 @@ foreach my $current_file (@DE_files) {
       ## feature is significant
       if ( abs($F[6]) > $logfc_threshold ) {
         ## feature is DE
-        push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE}}, "1" );
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "1";
         ## feature is sig up-regulated
         if ( $F[6] > $logfc_threshold ) {
-          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "1" );
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
         } else {
-          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "0" );
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
         }
         ## feature is sig down-regulated
         if ( $F[6] < -$logfc_threshold ) {
-          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "1" );
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
         } else {
-          push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "0" );
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
         }
       }
     } else {
-      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE}}, "0" );
-      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_up}}, "0" );
-      push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_DE_down}}, "0" );
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
     }
 
   }
@@ -153,23 +153,24 @@ foreach my $current_file (@other_files) {
   print STDERR "[INFO] $current_file\n";
   open (my $fh, "$current_file") or die $!;
   while (my $line = <$fh>) {
-    next if $. == 1; ## header
+    # next if $. == 1; ## header
     chomp $line;
     my @F = split (m/\s+/, $line);
 
     ## whatever is in the file, we take a 1/0 based on the feature name in col0
-    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{"is_$col_map{$current_file}"}}, "1" );
+    $features_hash{$F[0]}{"$col_map{$current_file}.is_feature"} = "1";
 
   }
 }
 
-print STDOUT join ("\t", "feature", (nsort values %col_map)) . "\n";
-foreach my $feature (nsort keys %features_hash) {
-  print STDOUT "$feature\t";
-  foreach (nsort values %col_map) {
-
-  }
-}
+# print STDOUT join ("\t", "feature", (nsort values %col_map)) . "\n";
+# foreach my $feature (nsort keys %features_hash) {
+#   print STDOUT "$feature\t";
+#   foreach (nsort values %col_map) {
+#
+#   }
+#   print STDOUT "\n";
+# }
 
 
 print Dumper (\%features_hash);
