@@ -17,19 +17,20 @@ SYNOPSIS:
   Collate DE results into single file.
 
 USAGE:
-  collate_DE_results.pl -t <FASTA> [-p 0.001] [-c 2] file1 [file2...]
+  collate_DE_results.pl -t <FASTA> -d file1 [file2...] [-e file3 [file4...]][-p 0.001] [-c 2] [-m col1 [col2...]]
 
 OPTIONS:
-  -t|--transcripts  [FILE] : transcriptome fasta file [required]
-  -d|--DE_files     [FILE] : DE results file(s) to be parsed and collated
-  -e|--other_files  [FILE] : other file(s) to be collated
-  -p|--padj        [FLOAT] : FDR threshold for defining DE genes [1e-3]
-  -c|--logFC       [FLOAT] : log2 fold-change threshold [2]
-  -h|--help                : prints this help message
+  -t|--transcripts   [FILE] : transcriptome fasta file [required]
+  -d|--DE_files      [FILE] : DE results file(s) to be parsed and collated
+  -e|--other_files   [FILE] : other file(s) to be collated
+  -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
+  -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
+  -m|--col_mapping [STRING] : replacement string for filename -> column names
+  -h|--help                 : prints this help message
 \n";
 
 my ($transcripts_file,$help);
-my (@DE_files, @other_files);
+my (@DE_files, @other_files, @column_mapping);
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
 
@@ -39,6 +40,7 @@ GetOptions (
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
+  'm|col_mapping:s{,}' => \@column_mapping,
   'h|help'             => \$help
 );
 
@@ -46,6 +48,19 @@ die $usage if $help;
 die $usage unless ($transcripts_file);
 
 my %features_hash;
+
+## make %col_mapping
+my %col_map;
+my @all_files = push(@DE_files,@other_files);
+for my $i (0..$#all_files) {
+  if (scalar(@column_mapping)>0) {
+    $col_map{$all_files[$i]} = $column_mapping[$i];
+  } else {
+    $col_map{$all_files[$i]} = $all_files[$i];
+  }
+}
+
+print Dumper (\%col_map);
 
 ## parse feature names from fasta
 print STDERR "[INFO] Parsing sequences in file: $transcripts_file\n";
