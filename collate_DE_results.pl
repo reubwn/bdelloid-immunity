@@ -145,7 +145,7 @@ foreach my $current_file (@other_files) {
     my @F = split (m/\s+/, $line);
 
     ## whatever is in the file, we take a 1/0 based on the feature name in col0
-    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{is_${col_map{$current_file}}}}, "1" );
+    push ( @{$features_hash{$F[0]}{$col_map{$current_file}}{"is_$col_map{$current_file}"}}, "1" );
 
   }
 }
