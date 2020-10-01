@@ -77,9 +77,16 @@ if ( $col_map_file ) {
 
 ## parse feature names from fasta
 print STDERR "[INFO] Parsing sequences in file: $transcripts_file\n";
-my $in = Bio::SeqIO -> new ( -file => $transcripts_file, -format => 'fasta' );
-while ( my $seq_obj = $in->next_seq() ) {
-  $features_hash{$seq_obj->display_id()}{length} = $seq_obj->length();
+if ( $transcripts_file =~ m/gz$/ ) { ## file is gzipped
+  my $in = Bio::SeqIO -> new ( -file => "zcat $transcripts_file |", -format => 'fasta' );
+  while ( my $seq_obj = $in->next_seq() ) {
+    $features_hash{$seq_obj->display_id()}{length} = $seq_obj->length();
+  }
+} else {
+  my $in = Bio::SeqIO -> new ( -file => $transcripts_file, -format => 'fasta' );
+  while ( my $seq_obj = $in->next_seq() ) {
+    $features_hash{$seq_obj->display_id()}{length} = $seq_obj->length();
+  }
 }
 print STDERR "[INFO] Number of sequences in $transcripts_file: ".scalar(keys %features_hash)."\n";
 
