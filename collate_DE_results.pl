@@ -28,7 +28,7 @@ OPTIONS:
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
   -m|--col_mapping   [FILE] : tab-delim file with replacements for filename <-> column names
-  -o|--out           [FILE] : outfile to write
+  -o|--out           [FILE] : prefix for outfiles ['collated']
   -h|--help                 : prints this help message
 \n";
 
@@ -37,7 +37,7 @@ my (@DE_files, @HGT_files, @other_files);
 my $method = "DESeq2";
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
-my $out_file = "collated.${method}_P${padj_threshold}_C${logfc_threshold}.DE_results.tab";
+my $out_prefix = "collated";
 
 GetOptions (
   't|transcripts=s'    => \$transcripts_file,
@@ -48,7 +48,7 @@ GetOptions (
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
   'm|col_mapping:s'    => \$col_map_file,
-  'o|out:s'            => \$out_file,
+  'o|out:s'            => \$out_prefix,
   'h|help'             => \$help
 );
 
@@ -56,6 +56,7 @@ die $usage if $help;
 die $usage unless ($transcripts_file);
 
 my %features_hash;
+my $out_file = "${out_prefix}.${method}_P${padj_threshold}_C${logfc_threshold}.DE_results.tab";
 
 ## make %col_mapping
 my %col_map;
