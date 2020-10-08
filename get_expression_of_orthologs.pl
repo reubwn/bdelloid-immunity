@@ -66,8 +66,9 @@ foreach my $current_file (@DE_files) {
 }
 
 ## open $out_file
-my $out_file = "${out_prefix}.tab";
+my $out_file = "${out_prefix}.DE_results.tab";
 open (my $OUT, ">$out_file") or die $!;
+my %seen_already;
 
 ## parse Orthogroups.txt file
 open (my $fh, $orthogroups_file) or die $!;
@@ -80,8 +81,14 @@ while (my $line = <$fh>) {
     next unless ($features_hash{$t}); ## skip if there is no expression data for $t
     foreach my $q (@F) {
       next unless ($features_hash{$q}); ## skip if there is no expression data for $q
-      ## print in long format, but not for self
+      ## count the number of times a given pair is seen
+      my $key = join ("_", nsort($t,$q));
+      $seen_already{$key}++;
+      ## and skip if the pair has already been seen (e.g. in reverse)
+      next if $seen_already{$key} > 1;
+      ## print in long format, but not for self!
       print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q})."\n" unless $t eq $q;
+
     }
   }
 }
