@@ -73,10 +73,9 @@ open (my $OUT, ">$out_file") or die $!;
 open (my $fh, $orthogroups_file) or die $!;
 while (my $line = <$fh>) {
   chomp $line;
-  my @F = split (m/:\s+/, $line);
-  my @G = split (m/\s+/, $F[1]);
-  foreach my $t (@G) {
-    foreach my $q (@G) {
+  my @F = split (m/\s+/, $F[1]);
+  foreach my $t (@F) {
+    foreach my $q (@F) {
       ## print in long format, but not for self
       print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q}) unless $t eq $q;
     }
