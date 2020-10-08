@@ -73,7 +73,7 @@ open (my $OUT, ">$out_file") or die $!;
 open (my $fh, $orthogroups_file) or die $!;
 while (my $line = <$fh>) {
   chomp $line;
-  my @F = split (m/\s+/, $F[1]);
+  my @F = split (m/\s+/, $line);
   foreach my $t (@F) {
     foreach my $q (@F) {
       ## print in long format, but not for self
