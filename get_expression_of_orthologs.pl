@@ -42,3 +42,45 @@ GetOptions (
 
 die $usage if $help;
 die $usage unless ($orthogroups_file);
+
+my %features_hash;
+
+## parse log2FC from DE results file(s)
+print STDERR "[INFO] Number of DE analysis files: ".scalar(@DE_files)."\n";
+foreach my $current_file (@DE_files) {
+  print STDERR "[INFO]   $current_file\n";
+  open (my $fh, "$current_file") or die $!;
+  while (my $line = <$fh>) {
+    next if $. == 1; ## header
+    chomp $line;
+    my @F = split (m/\s+/, $line);
+
+    die "[ERROR] File doesn't look like a DESEq2-style DE results file! (11-cols)\n" if (scalar(@F) != 11);
+
+    ## get the log2FC
+    $features_hash{$F[0]} = $F[6];
+    ## if the files have been supplied sensibly, each feature should only have 1 log2FC value
+
+  }
+  close $fh;
+}
+
+## open $out_file
+my $out_file = "${out_prefix}.tab";
+open (my $OUT, ">$out_file") or die $!;
+
+## parse Orthogroups.txt file
+open (my $fh, $orthogroups_file) or die $!;
+while (my $line = <$fh>) {
+  chomp $line;
+  my @F = split (m/:\s+/, $line);
+  my @G = split (m/\s+/, $F[1]);
+  foreach my $t (@G) {
+    foreach my $q (@G) {
+      ## print in long format, but not for self
+      print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q}) unless $t eq $q;
+    }
+  }
+}
+close $fh;
+close $OUT;
