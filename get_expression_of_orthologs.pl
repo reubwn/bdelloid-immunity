@@ -81,7 +81,7 @@ while (my $line = <$fh>) {
     foreach my $q (@F) {
       next unless ($features_hash{$q}); ## skip if there is no expression data for $q
       ## print in long format, but not for self
-      print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q}) unless $t eq $q;
+      print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q})."\n" unless $t eq $q;
     }
   }
 }
