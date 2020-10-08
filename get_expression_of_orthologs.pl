@@ -74,8 +74,12 @@ open (my $fh, $orthogroups_file) or die $!;
 while (my $line = <$fh>) {
   chomp $line;
   my @F = split (m/\s+/, $line);
+  shift @F; ## remove OG name
+  next if scalar(@F) < 2; ## skip single-member OGs
   foreach my $t (@F) {
+    next unless ($features_hash{$t}); ## skip if there is no expression data for $t
     foreach my $q (@F) {
+      next unless ($features_hash{$q}); ## skip if there is no expression data for $q
       ## print in long format, but not for self
       print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q}) unless $t eq $q;
     }
