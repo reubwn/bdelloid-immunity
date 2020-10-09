@@ -75,6 +75,7 @@ foreach my $current_file (@DE_files) {
 ## open $out_file
 my $out_file = "${out_prefix}.DE_results.tab";
 open (my $OUT, ">$out_file") or die $!;
+print $OUT "g1\tlog2FC.g1\tpadj.g1\tnegLogPadj.g1\tis_DE.g1\tg2\tlog2FC.g2\tpadj.g2\tnegLogPadj.g2\tis_DE.g2\n"; ## header
 my %seen_already;
 
 ## parse Orthogroups.txt file
