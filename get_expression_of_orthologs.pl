@@ -106,3 +106,5 @@ while (my $line = <$fh>) {
 }
 close $fh;
 close $OUT;
+
+print STDERR "[INFO] Done! ".`date`;
