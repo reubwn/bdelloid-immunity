@@ -58,9 +58,16 @@ foreach my $current_file (@DE_files) {
     die "[ERROR] File doesn't look like a DESEq2-style DE results file! (11-cols)\n" if (scalar(@F) != 11);
 
     ## get the log2FC
-    $features_hash{$F[0]} = $F[6];
     ## if the files have been supplied sensibly, each feature should only have 1 log2FC value
-
+    $features_hash{$F[0]}{log2FC} = $F[6];
+    ## get the padj
+    $features_hash{$F[0]}{padj} = $F[10];
+    ## calculate the negLogPadj
+    if ($F[10] == 0) {
+      $features_hash{$F[0]}{negLogPadj} = -log(5e-324)/log(10);
+    } else {
+      $features_hash{$F[0]}{negLogPadj} = -log($F[10])/log(10); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+    }
   }
   close $fh;
 }
@@ -87,8 +94,12 @@ while (my $line = <$fh>) {
       ## and skip if the pair has already been seen (e.g. in reverse)
       next if $seen_already{$key} > 1;
       ## print in long format, but not for self!
-      print $OUT join ("\t", $t, $features_hash{$t}, $q, $features_hash{$q})."\n" unless $t eq $q;
-
+      unless ($t eq $q) {
+        print $OUT join ("\t", $t, $features_hash{log2FC}{$t}, $features_hash{padj}{$t}, $features_hash{negLogPadj}{$t}, ((abs($features_hash{log2FC}{$t}) > $logfc_threshold) && ($features_hash{padj}{$t} < $padj_threshold) ? 1 : 0));
+        print $OUT "\t";
+        print $OUT join ("\t", $q, $features_hash{log2FC}{$q}, $features_hash{padj}{$q}, $features_hash{negLogPadj}{$q}, ((abs($features_hash{log2FC}{$q}) > $logfc_threshold) && ($features_hash{padj}{$q} < $padj_threshold) ? 1 : 0));
+        print $OUT "\n";
+      }
     }
   }
 }
