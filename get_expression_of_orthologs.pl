@@ -96,9 +96,9 @@ while (my $line = <$fh>) {
       next if $seen_already{$key} > 1;
       ## print in long format, but not for self!
       unless ($t eq $q) {
-        print $OUT join ("\t", $t, $features_hash{log2FC}{$t}, $features_hash{padj}{$t}, $features_hash{negLogPadj}{$t}, ((abs($features_hash{log2FC}{$t}) > $logfc_threshold) && ($features_hash{padj}{$t} < $padj_threshold) ? 1 : 0));
+        print $OUT join ("\t", $t, $features_hash{$t}{log2FC}, $features_hash{$t}{padj}, $features_hash{$t}{negLogPadj}, ((abs($features_hash{$t}{log2FC}) > $logfc_threshold) && ($features_hash{$t}{padj} < $padj_threshold) ? 1 : 0));
         print $OUT "\t";
-        print $OUT join ("\t", $q, $features_hash{log2FC}{$q}, $features_hash{padj}{$q}, $features_hash{negLogPadj}{$q}, ((abs($features_hash{log2FC}{$q}) > $logfc_threshold) && ($features_hash{padj}{$q} < $padj_threshold) ? 1 : 0));
+        print $OUT join ("\t", $q, $features_hash{$q}{log2FC}, $features_hash{$q}{padj}, $features_hash{$q}{negLogPadj}, ((abs($features_hash{$q}{log2FC}) > $logfc_threshold) && ($features_hash{$q}{padj} < $padj_threshold) ? 1 : 0));
         print $OUT "\n";
       }
     }
