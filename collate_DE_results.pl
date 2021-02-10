@@ -27,6 +27,7 @@ OPTIONS:
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
   -c|--logFC        [FLOAT] : log2 fold-change threshold [2]
+  -n|--missing     [STRING] : what to print for genes with no expression data ['NA']
   -m|--col_mapping   [FILE] : tab-delim file with replacements for filename <-> column names
   -o|--out           [FILE] : prefix for outfiles ['collated']
   -h|--help                 : prints this help message
@@ -37,6 +38,7 @@ my (@DE_files, @HGT_files, @other_files);
 my $method = "DESeq2";
 my $padj_threshold = 0.001;
 my $logfc_threshold = 2;
+my $missing = "NA";
 my $out_prefix = "collated";
 
 GetOptions (
@@ -47,6 +49,7 @@ GetOptions (
   'e|other_files:s{,}' => \@other_files,
   'p|padj:f'           => \$padj_threshold,
   'c|logFC:f'          => \$logfc_threshold,
+  'n|missing:s'        => \$missing,
   'm|col_mapping:s'    => \$col_map_file,
   'o|out:s'            => \$out_prefix,
   'h|help'             => \$help
@@ -214,8 +217,8 @@ foreach my $feature (nsort keys %features_hash) {
     if (exists $hash{$key}) {
       print $fh "\t$hash{$key}";
     } else {
-      ## pad missing information with NA
-      print $fh "\tNA";
+      ## pad missing information with $missing (NA by default)
+      print $fh "\t$missing";
     }
   }
   print $fh "\n";
