@@ -15,6 +15,7 @@ use Bio::SeqIO;
 my $usage = "
 SYNOPSIS:
   Collate DE results into single file.
+  Can provide a list of genes to '--other_files' that will inherit 1/0 designation in a column with header name taken from '--col_mapping'
 
 USAGE:
   collate_DE_results.pl -t <FASTA> -d file1 [file2...] [-e file3 [file4...]][-p 0.001] [-c 2] [-m col1 [col2...]]
