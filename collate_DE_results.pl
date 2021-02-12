@@ -186,11 +186,10 @@ if (scalar(@other_files)>0) {
     print STDERR "[INFO]   $current_file\n";
     open (my $fh, "$current_file") or die $!;
     while (my $line = <$fh>) {
-      next if $. == 1; ## assume header!
       chomp $line;
       my @F = split (m/\s+/, $line);
       ## whatever is in the file, we take a 1/0 based on the feature name in col0
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_feature"} = "1";
+      $features_hash{$F[0]}{"is.$col_map{$current_file}"} = "1";
     }
     close $fh;
   }
