@@ -75,7 +75,7 @@ foreach my $current_file (@DE_files) {
 ## open $out_file
 my $out_file = "${out_prefix}.DE_results.tab";
 open (my $OUT, ">$out_file") or die $!;
-print $OUT "g1\tlog2FC.g1\tpadj.g1\tnegLogPadj.g1\tis_DE.g1\tg2\tlog2FC.g2\tpadj.g2\tnegLogPadj.g2\tis_DE.g2\n"; ## header
+print $OUT "g1\tlog2FC.g1\tpadj.g1\tnegLogPadj.g1\tis.DE.g1\tis.DE.up.g1\tis.DE.down.g1\tg2\tlog2FC.g2\tpadj.g2\tnegLogPadj.g2\tis.DE.g2\tis.DE.up.g2\tis.DE.down.g2\n"; ## header
 my %seen_already;
 
 ## parse Orthogroups.txt file
@@ -96,9 +96,15 @@ while (my $line = <$fh>) {
       next if $seen_already{$key} > 1;
       ## print in long format, but not for self!
       unless ($t eq $q) {
-        print $OUT join ("\t", $t, $features_hash{$t}{log2FC}, $features_hash{$t}{padj}, $features_hash{$t}{negLogPadj}, ((abs($features_hash{$t}{log2FC}) > $logfc_threshold) && ($features_hash{$t}{padj} < $padj_threshold) ? 1 : 0));
+        print $OUT join ("\t", $t, $features_hash{$t}{log2FC}, $features_hash{$t}{padj}, $features_hash{$t}{negLogPadj},
+                          ((abs($features_hash{$t}{log2FC}) > $logfc_threshold) && ($features_hash{$t}{padj} < $padj_threshold) ? 1 : 0),
+                          (($features_hash{$t}{log2FC} > $logfc_threshold) && ($features_hash{$t}{padj} < $padj_threshold) ? 1 : 0),
+                          (($features_hash{$t}{log2FC} < (-1*$logfc_threshold)) && ($features_hash{$t}{padj} < $padj_threshold) ? 1 : 0));
         print $OUT "\t";
-        print $OUT join ("\t", $q, $features_hash{$q}{log2FC}, $features_hash{$q}{padj}, $features_hash{$q}{negLogPadj}, ((abs($features_hash{$q}{log2FC}) > $logfc_threshold) && ($features_hash{$q}{padj} < $padj_threshold) ? 1 : 0));
+        print $OUT join ("\t", $q, $features_hash{$q}{log2FC}, $features_hash{$q}{padj}, $features_hash{$q}{negLogPadj},
+                          ((abs($features_hash{$q}{log2FC}) > $logfc_threshold) && ($features_hash{$q}{padj} < $padj_threshold) ? 1 : 0),
+                          (($features_hash{$q}{log2FC} > $logfc_threshold) && ($features_hash{$q}{padj} < $padj_threshold) ? 1 : 0),
+                          (($features_hash{$q}{log2FC} < (-1*$logfc_threshold)) && ($features_hash{$q}{padj} < $padj_threshold) ? 1 : 0));
         print $OUT "\n";
       }
     }
