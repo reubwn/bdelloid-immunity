@@ -96,7 +96,9 @@ if ( $transcripts_file =~ m/gz$/ ) { ## file is gzipped
 print STDERR "[INFO] Number of sequences in $transcripts_file: ".scalar(keys %features_hash)."\n";
 
 ## parse features from DE results file(s)
-print STDERR "[INFO] Number of DE analysis files to collate: ".scalar(@DE_files)."\n";
+print STDERR "[INFO] Format of DE analysis files is '$method'\n";
+print STDERR "[INFO] Number of files to collate: ".scalar(@DE_files)."\n";
+
 foreach my $current_file (@DE_files) {
   print STDERR "[INFO]   $current_file\n";
   open (my $fh, "$current_file") or die $!;
@@ -105,48 +107,102 @@ foreach my $current_file (@DE_files) {
     chomp $line;
     my @F = split (m/\s+/, $line);
 
-    die "[ERROR] File doesn't look like a DESEq2-style DE results file! (11-cols)\n" if (scalar(@F) != 11);
+    if ($method =~ m/DESeq2/i) {
+      ##
+      ## DESeq2 format
+      ##
 
-    ## if current gene has DE result
-    $features_hash{$F[0]}{"$col_map{$current_file}.log2FC"} = $F[6];
-    $features_hash{$F[0]}{"$col_map{$current_file}.padj"} = $F[10];
+      ## if current gene has DE result
+      $features_hash{$F[0]}{"$col_map{$current_file}.log2FC"} = $F[6];
+      $features_hash{$F[0]}{"$col_map{$current_file}.padj"} = $F[10];
 
-    ## can't take log of 0 (Inf), so replace with some very small number
-    if ($F[10] == 0) {
-      $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log(5e-324)/log(10);
-    } else {
-      $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log($F[10])/log(10); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
-    }
+      ## can't take log of 0 (Inf), so replace with some very small number
+      if ($F[10] == 0) {
+        $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log(5e-324)/log(10);
+      } else {
+        $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log($F[10])/log(10); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+      }
 
-    ## is feature DE based on thresholds?
-    if ( $F[10] < $padj_threshold ) {
-      ## feature is significant
-      if ( abs($F[6]) > $logfc_threshold ) {
-        ## feature is DE
-        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "1";
-        ## feature is sig up-regulated
-        if ( $F[6] > $logfc_threshold ) {
-          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
+      ## is feature DE based on thresholds?
+      if ( $F[10] < $padj_threshold ) {
+        ## feature is significant
+        if ( abs($F[6]) > $logfc_threshold ) {
+          ## feature is DE
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "1";
+          ## feature is sig up-regulated
+          if ( $F[6] > $logfc_threshold ) {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
+          } else {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+          }
+          ## feature is sig down-regulated
+          if ( $F[6] < -$logfc_threshold ) {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
+          } else {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+          }
         } else {
+          ## catch features with significant DE but not above FC threshold
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-        }
-        ## feature is sig down-regulated
-        if ( $F[6] < -$logfc_threshold ) {
-          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
-        } else {
           $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
         }
       } else {
-        ## catch features with significant DE but not above FC threshold
+        ## catch genes with non-significant DE regardless of FC
         $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
         $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
         $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
       }
+
+    } elsif ($method =~ m/voom/i) {
+      ##
+      ## VOOM format
+      ##
+
+      ## if current gene has DE result
+      $features_hash{$F[0]}{"$col_map{$current_file}.log2FC"} = $F[3];
+      $features_hash{$F[0]}{"$col_map{$current_file}.padj"} = $F[6];
+
+      ## can't take log of 0 (Inf), so replace with some very small number
+      if ($F[6] == 0) {
+        $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log(5e-324)/log(10);
+      } else {
+        $features_hash{$F[0]}{"$col_map{$current_file}.negLogPadj"} = -log($F[6])/log(10); ## base-N log of a number is equal to the natural log of that number divided by the natural log of N
+      }
+
+      ## is feature DE based on thresholds?
+      if ( $F[6] < $padj_threshold ) {
+        ## feature is significant
+        if ( abs($F[3]) > $logfc_threshold ) {
+          ## feature is DE
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "1";
+          ## feature is sig up-regulated
+          if ( $F[3] > $logfc_threshold ) {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "1";
+          } else {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+          }
+          ## feature is sig down-regulated
+          if ( $F[3] < -$logfc_threshold ) {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "1";
+          } else {
+            $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+          }
+        } else {
+          ## catch features with significant DE but not above FC threshold
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+          $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+        }
+      } else {
+        ## catch genes with non-significant DE regardless of FC
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
+        $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+      }
+
     } else {
-      ## catch genes with non-significant DE regardless of FC
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE"} = "0";
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_up"} = "0";
-      $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
+      die "[ERROR] Method is unspecified! Must be 'DESeq2' or 'voom'\n";
     }
   }
   close $fh;
