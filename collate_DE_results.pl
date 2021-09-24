@@ -23,7 +23,7 @@ USAGE:
 OPTIONS:
   -t|--transcripts   [FILE] : transcriptome fasta file [required]
   -d|--DE_files      [FILE] : DE results file(s) to be parsed and collated
-  -r|--method      [STRING] : method used to run DE for format [DESeq2|limma]
+  -r|--method      [STRING] : method used to run DE for format [DESeq2|voom]
   -g|--HGT_files     [FILE] : HGT_locations.txt file
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
