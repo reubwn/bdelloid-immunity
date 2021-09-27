@@ -65,7 +65,7 @@ my $out_file = "${out_prefix}.${method}_P${padj_threshold}_C${logfc_threshold}.D
 ## make %col_mapping
 my %col_map;
 if ( $col_map_file ) {
-  open (my $fh, $col_map_file) or die $!;
+  open (my $fh, $col_map_file) or die "[ERROR] Can't open mapping file '$col_map_file': $!";
   while (<$fh>) {
     chomp;
     my @F = split (m/\s+/, $_);
