@@ -23,7 +23,7 @@ USAGE:
 OPTIONS:
   -t|--transcripts   [FILE] : transcriptome fasta file [required]
   -d|--DE_files      [FILE] : DE results file(s) to be parsed and collated
-  -r|--method      [STRING] : method used to run DE for format [DESeq2|voom]
+  -r|--method      [STRING] : method used to run DE for format [edgeR|DESeq2|voom]
   -g|--HGT_files     [FILE] : HGT_locations.txt file
   -e|--other_files   [FILE] : other file(s) to be collated
   -p|--padj         [FLOAT] : FDR threshold for defining DE genes [1e-3]
@@ -154,9 +154,9 @@ foreach my $current_file (@DE_files) {
         $features_hash{$F[0]}{"$col_map{$current_file}.is_DE_down"} = "0";
       }
 
-    } elsif ($method =~ m/voom/i) {
+    } elsif ($method =~ m/voom|edgeR/i) {
       ##
-      ## VOOM format
+      ## edgeR or VOOM format
       ##
 
       ## if current gene has DE result
@@ -202,7 +202,7 @@ foreach my $current_file (@DE_files) {
       }
 
     } else {
-      die "[ERROR] Method is unspecified! Must be 'DESeq2' or 'voom'\n";
+      die "[ERROR] Method is unspecified! Must be 'edgeR', 'DESeq2' or 'voom'\n";
     }
   }
   close $fh;
