@@ -5,17 +5,24 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 
 ## 1. Download raw reads and run sequence QC
 
-1.1 Download raw reads from SRA using [this accession list](SRR_Acc_List.txt):
+**1.1.** Download raw reads from SRA using [this accession list](SRR_Acc_List.txt):
 ```
 > while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
 
-_1.2 Optional file compression:_
+**1.2.** File compression (optional):
 ```
 > ls *fastq | parallel gzip {}
 ```
 
-1.3 Run QC pipeline using [BBTools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/):
+**1.3.** Run QC pipeline using [BBTools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/):
+
+Install BBTools via conda:
+```
+> conda install -c bioconda bbmap
+```
+
+Run QC pipeline:
 ```
 commands
 ```
@@ -24,7 +31,7 @@ commands
 
 ## 2. Running differential expression analysis
 
-### 2.1 Generate target 'gentrome.fa'
+**2.1.** Generate target 'gentrome.fa'
 
 Following Salmon documentation available here: 
 
@@ -38,7 +45,7 @@ For _A. ricciae_
 commands
 ```
 
-### 2.2 Run Salmon quantification
+**2.2.** Run Salmon quantification
 
 ```
 commands
