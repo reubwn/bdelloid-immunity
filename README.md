@@ -6,10 +6,10 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 ## 1. Download raw reads and run sequence QC
 
 ### 1.1. Download raw reads from SRA 
-[SRR_Acc_List.txt](SRR_Acc_List.txt):
 ```
 > while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
+[SRR_Acc_List.txt](SRR_Acc_List.txt)
 
 ### 1.2. File compression (optional):
 ```
