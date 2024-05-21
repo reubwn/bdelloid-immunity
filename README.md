@@ -22,12 +22,26 @@ Install BBTools via conda:
 > conda install -c bioconda bbmap
 ```
 
-Run QC pipeline:
+Run basic QC pipeline for each read pair:
+```
+## run bbduk
+> bbduk.sh -Xmx60g t=$THREADS \
+    in1=$IN1 in2=$IN2 \
+    out1=$OUT1 out2=$OUT2 \
+    ref=path/to/resources/adapters.fa \
+    ktrim=r k=23 mink=11 hdist=1 tpe tbo stats=bbduk.contaminants
+
+## run fastqc
+> fastqc -d ./ --threads 6 --nogroup $IN1 $IN2 $OUT1 $OUT2
+```
+Note user defined parameters e.g. `$THREADS`, `$IN1` etc! Edit as required for your system.
+
+Remove reads mapping to rRNA database and _E. coli_ OP50 genome (rotifer food):
 ```
 commands
 ```
 
-**NB** SRA Run Selector permanent URL [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).
+(**NB** SRA Run Selector permanent URL [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).)
 
 ## 2. Running differential expression analysis
 
