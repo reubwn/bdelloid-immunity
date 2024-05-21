@@ -5,24 +5,25 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 
 ## 1. Download raw reads and run sequence QC
 
-**1.1.** Download raw reads from SRA using [this accession list](SRR_Acc_List.txt):
+### 1.1. Download raw reads from SRA 
+[SRR_Acc_List.txt](SRR_Acc_List.txt):
 ```
 > while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
 
-**1.2.** File compression (optional):
+### 1.2. File compression (optional):
 ```
 > ls *fastq | parallel gzip {}
 ```
 
-**1.3.** Run QC pipeline using [BBTools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/):
+### 1.3. Run QC pipeline:
 
-Install BBTools via conda:
+#### Install [BBTools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/) via conda:
 ```
 > conda install -c bioconda bbmap
 ```
 
-Run basic QC pipeline for each read pair:
+#### Run basic QC pipeline for each read pair:
 ```
 ## run bbduk
 > bbduk.sh -Xmx60g t=$THREADS \
@@ -36,7 +37,7 @@ Run basic QC pipeline for each read pair:
 ```
 Note user defined parameters e.g. `$THREADS`, `$IN1` etc! Edit as required for your system.
 
-Remove reads mapping to rRNA database and _E. coli_ OP50 genome (rotifer food):
+#### Remove reads mapping to rRNA database and _E. coli_ OP50 genome (rotifer food):
 ```
 commands
 ```
