@@ -10,7 +10,9 @@ Via conda:
 >> conda install -c bioconda bbmap ncbi-datasets-cli sra-tools
 ```
 SRA Tools documentation [here](https://github.com/ncbi/sra-tools)
+
 NCBI Datasets documentation [here](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/) - such a great program!
+
 BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
 
 ## 1. Download raw reads and run sequence QC
