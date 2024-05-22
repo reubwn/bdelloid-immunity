@@ -6,6 +6,9 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 ## 1. Download raw reads and run sequence QC
 
 ### 1.1. Download raw reads from SRA 
+
+SRA Run Selector permanent URL [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).
+
 ```
 >> while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
@@ -38,9 +41,9 @@ BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/b
 ```
 Note user defined parameters e.g. `$THREADS`, `$READS1` etc! Edit as required for your system.
 
-#### Filter reads mapping to rRNA databases:
+#### Filter reads mapping to rRNA databases or _E. coli_ OP50 genome (rotifer food):
 
-SILVA rRNA database [here](https://www.arb-silva.de/).
+Link to SILVA rRNA database [here](https://www.arb-silva.de/).
 
 ```
 ## download SILVA LSU and SSU rrna databases
@@ -49,28 +52,26 @@ SILVA rRNA database [here](https://www.arb-silva.de/).
 >> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_SSUParc_tax_silva.fasta.gz
 >> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_SSUParc_tax_silva.fasta.gz.md5 && md5sum -c SILVA_132_SSUParc_tax_silva.fasta.gz.md5
 
-## cat them together
->> zcat SILVA_132_LSUParc_tax_silva.fasta.gz SILVA_132_SSUParc_tax_silva.fasta.gz | perl -lane 'if(/>/){print $F[0]}else{s/U/T/g;print}' | gzip > rrna_db.fa.gz
+## download e. coli OP50 genome
+>> datasets download genome accession GCF_009496595.1
 
-## keep reads which don't map
+## cat them together
+>> cat ncbi_dataset/data/GCF_009496595.1/GCF_009496595.1_ASM949659v1_genomic.fna \
+    <(zcat SILVA_132_LSUParc_tax_silva.fasta.gz SILVA_132_SSUParc_tax_silva.fasta.gz | perl -lane 'if(/>/){print $F[0]}else{s/U/T/g;print}') \
+    | gzip > rrna_op50_db.fa.gz
+
+## keep reads which DON'T map using outu
 >> bbmap.sh -Xmx120g \
     threads=12 \
     nodisk=t \
-    ref=rrna_db.fa.gz \
+    ref=rrna_op50_db.fa.gz \
     in1=$READS1 \
     in2=$READS2 \
     local=t \
     outu=${PREFIX}_#.bbduk.ecc.filtered.fq.gz
 ```
 
-### Filter reads mapping to _E. coli_ OP50 genome (rotifer food)
-```
-commands
-```
-
-(**NB** SRA Run Selector permanent URL [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).)
-
-## 2. Running differential expression analysis
+## 2. Run differential expression analysis
 
 **2.1.** Generate target 'gentrome.fa'
 
