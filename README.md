@@ -9,6 +9,7 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 
 Link to raw data (SRA Run Selector permanent URL) [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).
 
+Or use list of accessions below:
 ```
 >> while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
@@ -27,7 +28,7 @@ Link to raw data (SRA Run Selector permanent URL) [here](https://www.ncbi.nlm.ni
 ```
 BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
 
-#### Run basic QC pipeline for each read pair:
+#### Quality and adapter trimming:
 ```
 ## run bbduk
 >> bbduk.sh -Xmx60g t=$THREADS \
