@@ -7,37 +7,63 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 
 ### 1.1. Download raw reads from SRA 
 ```
-> while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
+>> while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
 [SRR_Acc_List.txt](SRR_Acc_List.txt)
 
 ### 1.2. File compression (optional):
 ```
-> ls *fastq | parallel gzip {}
+>> ls *fastq | parallel gzip {}
 ```
 
 ### 1.3. Run QC pipeline:
 
-#### Install [BBTools](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/) via conda:
+#### Install BBTools via conda:
 ```
-> conda install -c bioconda bbmap
+>> conda install -c bioconda bbmap
 ```
+BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
 
 #### Run basic QC pipeline for each read pair:
 ```
 ## run bbduk
-> bbduk.sh -Xmx60g t=$THREADS \
-    in1=$IN1 in2=$IN2 \
+>> bbduk.sh -Xmx60g t=$THREADS \
+    in1=$READS1 in2=$READS2 \
     out1=$OUT1 out2=$OUT2 \
     ref=path/to/resources/adapters.fa \
     ktrim=r k=23 mink=11 hdist=1 tpe tbo stats=bbduk.contaminants
 
 ## run fastqc
-> fastqc -d ./ --threads 6 --nogroup $IN1 $IN2 $OUT1 $OUT2
+>> fastqc -d ./ --threads 6 --nogroup $READS1 $READS2 $OUT1 $OUT2
 ```
-Note user defined parameters e.g. `$THREADS`, `$IN1` etc! Edit as required for your system.
+Note user defined parameters e.g. `$THREADS`, `$READS1` etc! Edit as required for your system.
 
-#### Remove reads mapping to rRNA database and _E. coli_ OP50 genome (rotifer food):
+#### Filter reads mapping to rRNA databases:
+
+SILVA rRNA database [here](https://www.arb-silva.de/).
+
+```
+## download SILVA LSU and SSU rrna databases
+>> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_LSUParc_tax_silva.fasta.gz
+>> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_LSUParc_tax_silva.fasta.gz.md5 && md5sum -c SILVA_132_LSUParc_tax_silva.fasta.gz.md5
+>> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_SSUParc_tax_silva.fasta.gz
+>> wget https://ftp.arb-silva.de/release_132/Exports/SILVA_132_SSUParc_tax_silva.fasta.gz.md5 && md5sum -c SILVA_132_SSUParc_tax_silva.fasta.gz.md5
+
+## cat them together
+>> zcat SILVA_132_LSUParc_tax_silva.fasta.gz SILVA_132_SSUParc_tax_silva.fasta.gz | perl -lane 'if(/>/){print $F[0]}else{s/U/T/g;print}' | gzip > rrna_db.fa.gz
+
+## keep reads which don't map
+>> bbmap.sh -Xmx120g \
+    threads=12 \
+    nodisk=t \
+    ref=rrna_db.fa.gz \
+    in1=$READS1 \
+    in2=$READS2 \
+    local=t \
+    outu=${PREFIX}_#.bbduk.ecc.filtered.fq.gz
+```
+
+### Filter reads mapping to _E. coli_ OP50 genome (rotifer food)
 ```
 commands
 ```
