@@ -82,7 +82,7 @@ Link to SILVA rRNA database [here](https://www.arb-silva.de/).
 
 #### Generate target files
 
-'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; Ar18; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
+'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; **Ar18**; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
 
 Gentrome files:
 + _A. vaga_: [gentrome_Av.fa.gz](data/gentrome_Av.fa.gz)
