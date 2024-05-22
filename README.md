@@ -3,6 +3,16 @@ _Scripts for analysis of DE experiment_
 
 A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell _et al._ 2024).
 
+## 0. Install software
+
+Via conda:
+```
+>> conda install -c bioconda bbmap ncbi-datasets-cli sra-tools
+```
+SRA Tools documentation [here](https://github.com/ncbi/sra-tools)
+NCBI Datasets documentation [here](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/) - such a great program!
+BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
+
 ## 1. Download raw reads and run sequence QC
 
 ### 1.1. Download raw reads from SRA 
@@ -21,12 +31,6 @@ Or use list of accessions below:
 ```
 
 ### 1.3. Run QC pipeline:
-
-#### Install BBTools via conda:
-```
->> conda install -c bioconda bbmap
-```
-BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
 
 #### Quality and adapter trimming:
 ```
