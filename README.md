@@ -3,17 +3,15 @@ _Scripts for analysis of DE experiment_
 
 A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell _et al._ 2024). 
 
-## 0. Install software
+## 0. Install various software
 
 Via conda:
 ```
->> conda install -c bioconda bbmap ncbi-datasets-cli sra-tools
+>> conda install -c bioconda bbmap ncbi-datasets-cli sra-tools gnu-parallel
 ```
-SRA Tools documentation [here](https://github.com/ncbi/sra-tools)
-
-NCBI Datasets documentation [here](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/) - such a great program!
-
-BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
++ SRA Tools documentation [here](https://github.com/ncbi/sra-tools)
++ NCBI Datasets documentation [here](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/) (such a great program!)
++ BBTools documentation [here](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/).
 
 ## 1. Download raw reads and run sequence QC
 
@@ -80,9 +78,13 @@ Link to SILVA rRNA database [here](https://www.arb-silva.de/).
 
 ## 2. Run differential expression analysis
 
-**2.1.** Generate target 'gentrome.fa'
+### 2.1. Generate target 'gentrome.fa' files
 
-Following Salmon documentation available here: 
+Following Salmon documentation available [here](https://salmon.readthedocs.io/en/latest/).
+
+Transcriptome files:
++ _A. vaga_:
++ _A. ricciae_:
 
 For _A. vaga_:
 ```
