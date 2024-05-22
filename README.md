@@ -1,7 +1,7 @@
 # bdelloid-immunity
 _Scripts for analysis of DE experiment_
 
-A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell _et al._ 2024). 
+A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell _et al._ 2024).
 
 ## 0. Install various software
 
@@ -15,7 +15,7 @@ Via conda:
 
 ## 1. Download raw reads and run sequence QC
 
-### 1.1. Download raw reads from SRA 
+### 1.1. Download raw reads from SRA
 
 Link to raw data (SRA Run Selector permanent URL) [here](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=3&WebEnv=MCID_664cb51e8626ff46afab21f6&o=acc_s%3Aa&s=ERR4469891,ERR4469902,ERR4469903,ERR4469904,ERR4469905,ERR4469906,ERR4469907,ERR4469908,ERR4471099,ERR4471100,ERR4471101,ERR4471102,ERR4471104,ERR4471105,ERR4471106,ERR4471107,ERR4471108,ERR4471109,ERR4471110,ERR4471111,ERR4471113,ERR4471114,ERR4471115,ERR4471116#).
 
@@ -80,7 +80,11 @@ Link to SILVA rRNA database [here](https://www.arb-silva.de/).
 
 ### 2.1. Generate target files
 
-'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; **Ar18**; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
+'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; **Ar18**; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see the Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
+
+Transcriptome files:
++ _A. vaga_: [cds_Av.fa.gz](data/cds_Av.fa.gz)
++ _A. ricciae_: [cds_Ar.fa.gz](data/cds_Ar.fa.gz)
 
 Gentrome files:
 + _A. vaga_: [gentrome_Av.fa.gz](data/gentrome_Av.fa.gz)
@@ -104,4 +108,4 @@ commands
 
 ## 3. Collate HGTc information into final results files
 
-Use custom script `collate_DE_results.pl` 
+Use custom script `collate_DE_results.pl`
