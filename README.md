@@ -107,9 +107,9 @@ The Trinity RNA-seq assembler wiki has some fantastically useful documentation o
 
 #### Quantification using Salmon (via Trinity workflow)
 
-First need to generate a space-delim samples file specifying the grouping hierarchy and absolute paths to the fq read files, one for each species.
+First need to generate a space-delim samples file specifying the grouping among our biological replicates and absolute paths to the fq read files. One sample file per species.
 
-_A. vaga_ samples file:
+(a) _A. vaga_ samples file:
 ```
 AD8X24	AD8X24b	/path/to/AD8X24b/AD8X24b_1.filtered.fq.gz	/path/to/AD8X24b/AD8X24b_2.filtered.fq.gz
 AD8X24	AD8X24c	/path/to/AD8X24c/AD8X24c_1.filtered.fq.gz	/path/to/AD8X24c/AD8X24c_2.filtered.fq.gz
@@ -125,7 +125,7 @@ AD8Y7	AD8Y7c	/path/to/AD8Y7c/AD8Y7c_1.filtered.fq.gz	/path/to/AD8Y7c/AD8Y7c_2.fi
 AD8Y7	AD8Y7d	/path/to/AD8Y7d/AD8Y7d_1.filtered.fq.gz	/path/to/AD8Y7d/AD8Y7d_2.filtered.fq.gz
 ```
 
-_A. ricciae_ samples file:
+(b) _A. ricciae_ samples file:
 ```
 AD1X24	AD1X24b	/path/to/AD1X24b/AD1X24b_1.filtered.fq.gz	/path/to/AD1X24b/AD1X24b_2.filtered.fq.gz
 AD1X24	AD1X24c	/path/to/AD1X24c/AD1X24c_1.filtered.fq.gz	/path/to/AD1X24c/AD1X24c_2.filtered.fq.gz
