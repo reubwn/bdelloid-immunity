@@ -103,7 +103,7 @@ Make Salmon index files:
 
 ### 2.2. Quantification using Trinity pipeline
 
-The Trinity RNA-seq assembler wiki has a great documentation on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below follow the Trinity tutorial.
+The Trinity RNA-seq assembler wiki has some fantastically useful documentation on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below directly follow this online tutorial.
 
 #### Quantification using Salmon (via Trinity workflow)
 
