@@ -1,7 +1,7 @@
 # bdelloid-immunity
 _Scripts for analysis of DE experiment_
 
-A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell _et al._ 2024).
+A repository for all custom analysis and plotting scripts for the manuscript 'Bdelloid rotifers deploy horizontally acquired biosynthetic genes against a fungal pathogen' (Nowell et al. 2024).
 
 ## 0. Install various software
 
@@ -23,7 +23,7 @@ Or use list of accessions below:
 ```
 >> while read acc; do fasterq-dump $acc; done < SRR_Acc_List.txt
 ```
-[SRR_Acc_List.txt](SRR_Acc_List.txt)
+[SRR_Acc_List.txt](misc/SRR_Acc_List.txt)
 
 ### 1.2. File compression (optional):
 ```
@@ -82,7 +82,7 @@ Link to SILVA rRNA database [here](https://www.arb-silva.de/).
 
 'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; **Ar18**; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see the Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
 
-Transcriptome files:
+Transcriptome files, filtered for min length >= 150:
 + _A. vaga_: [cds_Av.fa.gz](data/cds_Av.fa.gz)
 + _A. ricciae_: [cds_Ar.fa.gz](data/cds_Ar.fa.gz)
 
@@ -94,10 +94,20 @@ Decoy files:
 + _A. vaga_: [decoys_Av.txt](data/decoys_Av.txt)
 + _A. ricciae_: [decoys_Ar.txt](data/decoys_Ar.txt)
 
-### 2.2. Indexing and quantification
+#### Salmon indexing
 
+Make Salmon index files for quantification:
 ```
-commands
+>> parallel salmon index -t gentrome_{}.fa.gz -i cds_{}.salmon.idx -d decoys_{}.txt -p 4 ::: Ar Av
+```
+
+### 2.2. Quantification using Trinity pipeline
+
+The Trinity RNA-seq assembler wiki has a great tutorial on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below are taken following this documentation.
+
+#### Quantification using Salmon
+```
+command
 ```
 
 ### 2.3. Differential expression analyses
