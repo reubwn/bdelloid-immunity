@@ -105,9 +105,7 @@ Make Salmon index files:
 
 The Trinity RNA-seq assembler wiki has a great documentation on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below follow the Trinity tutorial.
 
-#### Quantification using Salmon
-
-Using the script `align_and_estimate_abundance.pl` from the [Trinity package](https://github.com/trinityrnaseq/trinityrnaseq/tree/master).
+#### Quantification using Salmon (via Trinity workflow)
 
 First need to generate a space-delim samples file specifying the grouping hierarchy and absolute paths to the fq read files, one for each species.
 
@@ -151,6 +149,37 @@ Filename codes are as follows:
 + 7 = timepoint 7h
 + 24 = timepoint 24h
 + a,b,c,d in second column = replicate samples within each treatment group (3 per group)
+
+Then use the script `align_and_estimate_abundance.pl` from the [Trinity package](https://github.com/trinityrnaseq/trinityrnaseq/tree/master) to generate `quant.sf` files for each read file:
+```
+align_and_estimate_abundance.pl \
+ --thread_count 32 \
+ --transcripts $TRANSCRIPTS \
+ --seqType fq \
+ --samples_file $SAMPLE_FILE \
+ --est_method salmon \
+ --output_dir $OUTDIR
+```
+Note that `$TRANSCRIPTS` should point to the prefix of the Salmon index file, in this case `cds_Ar` or `cds_Av` as above, the script will pick up the `*.salmon.idx` file automatically or throw an error if it doesn't exist.
+
+Create FOFN for `quant.sf` files, e.g. for _A. vaga_:
+```
+>> ls /path/to/reads/AD8*/quant.sf > quant_Av.fofn
+```
+
+Then use the Trinity script `abundance_estimates_to_matrix.pl` to convert to matrix:
+```
+>> abundance_estimates_to_matrix.pl --est_method salmon --gene_trans_map none --name_sample_by_basedir --quant_files salmon_Av.fofn
+```
+
+Resulting matrix files are [here](results/counts/):
++ `*.counts.matrix`: the estimated RNA-Seq fragment counts (raw counts)
++ `*.TPM.not_cross_norm`: a matrix of TPM expression values (not cross-sample normalized)
++ `*.TMM.EXPR.matrix`: a matrix of TMM-normalized expression values
+Definitions of file types taken from the [Trinity wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-Transcript-Quantification).
+
+Finally, use the Trinity QC script `PtR` to check correlation in expression among biological replicates:
+
 
 ### 2.3. Differential expression analyses
 
