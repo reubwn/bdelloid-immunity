@@ -38,7 +38,7 @@ Or use list of accessions below:
 >> bbduk.sh -Xmx60g t=$THREADS \
     in1=$READS1 in2=$READS2 \
     out1=$OUT1 out2=$OUT2 \
-    ref=path/to/resources/adapters.fa \
+    ref=path/to/adapters.fa \
     ktrim=r k=23 mink=11 hdist=1 tpe tbo stats=bbduk.contaminants
 
 ## run fastqc
@@ -73,42 +73,84 @@ Link to SILVA rRNA database [here](https://www.arb-silva.de/).
     in1=$READS1 \
     in2=$READS2 \
     local=t \
-    outu=${PREFIX}_#.bbduk.ecc.filtered.fq.gz
+    outu=${PREFIX}_#.filtered.fq.gz
 ```
 
 ## 2. Run differential expression analysis
 
 ### 2.1. Generate target files
 
-'Gentrome' files are concatenated fasta files containing the reference transcriptomes + the genomic scaffolds for _A. vaga_ (GCA_000513175.1; **Av13**; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (GCA_900240375.1; **Ar18**; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)) reference genomes. 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see the Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
+'Gentrome' files are concatenated fasta files containing the reference transcriptome + the genomic scaffolds for each species, _A. vaga_ (Av13, GCA_000513175.1; [Flot et al. 2013](http://dx.doi.org/10.1038/nature12326)) and _A. ricciae_ (Ar18, GCA_900240375.1; [Nowell et al. 2018](http://dx.doi.org/10.1371/journal.pbio.2004830)). 'Decoy' files determine genomic scaffolds from target transcriptome sequences. For more information see the Salmon docs [here](https://salmon.readthedocs.io/en/latest/).
 
-Transcriptome files, filtered for min length >= 150:
+Transcriptome files (filtered for length >= 150 bases):
 + _A. vaga_: [cds_Av.fa.gz](data/cds_Av.fa.gz)
 + _A. ricciae_: [cds_Ar.fa.gz](data/cds_Ar.fa.gz)
 
-Gentrome files:
+Gentrome files (concatenated transcriptome + genome):
 + _A. vaga_: [gentrome_Av.fa.gz](data/gentrome_Av.fa.gz)
 + _A. ricciae_: [gentrome_Ar.fa.gz](data/gentrome_Ar.fa.gz)
 
-Decoy files:
+Decoy files (plain text list of genome sequence IDs):
 + _A. vaga_: [decoys_Av.txt](data/decoys_Av.txt)
 + _A. ricciae_: [decoys_Ar.txt](data/decoys_Ar.txt)
 
 #### Salmon indexing
 
-Make Salmon index files for quantification:
+Make Salmon index files:
 ```
 >> parallel salmon index -t gentrome_{}.fa.gz -i cds_{}.salmon.idx -d decoys_{}.txt -p 4 ::: Ar Av
 ```
 
 ### 2.2. Quantification using Trinity pipeline
 
-The Trinity RNA-seq assembler wiki has a great tutorial on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below are taken following this documentation.
+The Trinity RNA-seq assembler wiki has a great documentation on DE analysis, see [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki). Many of the steps below follow the Trinity tutorial.
 
 #### Quantification using Salmon
+
+Using the script `align_and_estimate_abundance.pl` from the [Trinity package](https://github.com/trinityrnaseq/trinityrnaseq/tree/master).
+
+First need to generate a space-delim samples file specifying the grouping hierarchy and absolute paths to the fq read files, one for each species.
+
+_A. vaga_ samples file:
 ```
-command
+AD8X24	AD8X24b	/path/to/AD8X24b/AD8X24b_1.filtered.fq.gz	/path/to/AD8X24b/AD8X24b_2.filtered.fq.gz
+AD8X24	AD8X24c	/path/to/AD8X24c/AD8X24c_1.filtered.fq.gz	/path/to/AD8X24c/AD8X24c_2.filtered.fq.gz
+AD8X24	AD8X24d	/path/to/AD8X24d/AD8X24d_1.filtered.fq.gz	/path/to/AD8X24d/AD8X24d_2.filtered.fq.gz
+AD8X7	AD8X7a	/path/to/AD8X7a/AD8X7a_1.filtered.fq.gz	/path/to/AD8X7a/AD8X7a_2.filtered.fq.gz
+AD8X7	AD8X7b	/path/to/AD8X7b/AD8X7b_1.filtered.fq.gz	/path/to/AD8X7b/AD8X7b_2.filtered.fq.gz
+AD8X7	AD8X7c	/path/to/AD8X7c/AD8X7c_1.filtered.fq.gz	/path/to/AD8X7c/AD8X7c_2.filtered.fq.gz
+AD8Y24	AD8Y24a	/path/to/AD8Y24a/AD8Y24a_1.filtered.fq.gz	/path/to/AD8Y24a/AD8Y24a_2.filtered.fq.gz
+AD8Y24	AD8Y24b	/path/to/AD8Y24b/AD8Y24b_1.filtered.fq.gz	/path/to/AD8Y24b/AD8Y24b_2.filtered.fq.gz
+AD8Y24	AD8Y24c	/path/to/AD8Y24c/AD8Y24c_1.filtered.fq.gz	/path/to/AD8Y24c/AD8Y24c_2.filtered.fq.gz
+AD8Y7	AD8Y7a	/path/to/AD8Y7a/AD8Y7a_1.filtered.fq.gz	/path/to/AD8Y7a/AD8Y7a_2.filtered.fq.gz
+AD8Y7	AD8Y7c	/path/to/AD8Y7c/AD8Y7c_1.filtered.fq.gz	/path/to/AD8Y7c/AD8Y7c_2.filtered.fq.gz
+AD8Y7	AD8Y7d	/path/to/AD8Y7d/AD8Y7d_1.filtered.fq.gz	/path/to/AD8Y7d/AD8Y7d_2.filtered.fq.gz
 ```
+
+_A. ricciae_ samples file:
+```
+AD1X24	AD1X24b	/path/to/AD1X24b/AD1X24b_1.filtered.fq.gz	/path/to/AD1X24b/AD1X24b_2.filtered.fq.gz
+AD1X24	AD1X24c	/path/to/AD1X24c/AD1X24c_1.filtered.fq.gz	/path/to/AD1X24c/AD1X24c_2.filtered.fq.gz
+AD1X24	AD1X24d	/path/to/AD1X24d/AD1X24d_1.filtered.fq.gz	/path/to/AD1X24d/AD1X24d_2.filtered.fq.gz
+AD1X7	AD1X7a	/path/to/AD1X7a/AD1X7a_1.filtered.fq.gz	/path/to/AD1X7a/AD1X7a_2.filtered.fq.gz
+AD1X7	AD1X7b	/path/to/AD1X7b/AD1X7b_1.filtered.fq.gz	/path/to/AD1X7b/AD1X7b_2.filtered.fq.gz
+AD1X7	AD1X7c	/path/to/AD1X7c/AD1X7c_1.filtered.fq.gz	/path/to/AD1X7c/AD1X7c_2.filtered.fq.gz
+AD1Y24	AD1Y24b	/path/to/AD1Y24b/AD1Y24b_1.filtered.fq.gz	/path/to/AD1Y24b/AD1Y24b_2.filtered.fq.gz
+AD1Y24	AD1Y24c	/path/to/AD1Y24c/AD1Y24c_1.filtered.fq.gz	/path/to/AD1Y24c/AD1Y24c_2.filtered.fq.gz
+AD1Y24	AD1Y24d	/path/to/AD1Y24d/AD1Y24d_1.filtered.fq.gz	/path/to/AD1Y24d/AD1Y24d_2.filtered.fq.gz
+AD1Y7	AD1Y7a	/path/to/AD1Y7a/AD1Y7a_1.filtered.fq.gz	/path/to/AD1Y7a/AD1Y7a_2.filtered.fq.gz
+AD1Y7	AD1Y7c	/path/to/AD1Y7c/AD1Y7c_1.filtered.fq.gz	/path/to/AD1Y7c/AD1Y7c_2.filtered.fq.gz
+AD1Y7	AD1Y7d	/path/to/AD1Y7d/AD1Y7d_1.filtered.fq.gz	/path/to/AD1Y7d/AD1Y7d_2.filtered.fq.gz
+```
+
+Filename codes are as follows:
++ AD8 = _A. vaga_
++ AD1 = _A. ricciae_
++ X = control sample
++ Y = treatment sample
++ 7 = timepoint 7h
++ 24 = timepoint 24h
++ a,b,c,d in second column = replicate samples within each treatment group (3 per group)
 
 ### 2.3. Differential expression analyses
 
