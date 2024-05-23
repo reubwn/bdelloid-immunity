@@ -160,7 +160,7 @@ align_and_estimate_abundance.pl \
  --est_method salmon \
  --output_dir $OUTDIR
 ```
-Note that `$TRANSCRIPTS` should point to the prefix of the Salmon index file, in this case `cds_Ar` or `cds_Av` as above, the script will pick up the `*.salmon.idx` file automatically or throw an error if it doesn't exist.
+Note that `$TRANSCRIPTS` should point to the prefix of the Salmon index file, in this case `cds_Ar` or `cds_Av` as above - the script should pick up the `*.salmon.idx` file automatically or throw an error if it doesn't exist.
 
 Create FOFN for `quant.sf` files, e.g. for _A. vaga_:
 ```
@@ -172,11 +172,12 @@ Then use the Trinity script `abundance_estimates_to_matrix.pl` to convert to mat
 >> abundance_estimates_to_matrix.pl --est_method salmon --gene_trans_map none --name_sample_by_basedir --quant_files salmon_Av.fofn
 ```
 
-Resulting matrix files are [here](results/counts/):
+Resulting matrix files can be found [here](results/counts/):
 + `*.counts.matrix`: the estimated RNA-Seq fragment counts (raw counts)
 + `*.TPM.not_cross_norm`: a matrix of TPM expression values (not cross-sample normalized)
 + `*.TMM.EXPR.matrix`: a matrix of TMM-normalized expression values
-Definitions of file types taken from the [Trinity wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-Transcript-Quantification).
+
+See the [Trinity wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki/Trinity-Transcript-Quantification) for more info.
 
 Finally, use the Trinity QC script `PtR` to check correlation in expression among biological replicates:
 
