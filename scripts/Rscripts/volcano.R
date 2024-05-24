@@ -2,8 +2,6 @@ setwd("~/software/github/bdelloid-immunity/")
 
 library(cowplot)
 library(gridExtra)
-library(ggVennDiagram)
-library(ggplot2)
 
 ## cols
 Av.col <- "#F44B19"
