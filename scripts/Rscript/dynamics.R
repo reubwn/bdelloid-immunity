@@ -1,90 +1,14 @@
-setwd("~/software/github/bdelloid-immunity/scripts/Rscript")
-
-library(RColorBrewer)
-library(cowplot)
-library(gridGraphics)
-library(plotrix)
-library(gridExtra)
+setwd("~/software/github/bdelloid-immunity/")
 
 ## cols
 Av.col<-"#F44B19"
-Av.col.light<-"#F9A085"
-Av.col.vlight<-"#FDD8CE"
 Ar.col<-"#01AAEA"
-Ar.col.light<-"#80DDFF"
-Ar.col.vlight<-"#CCF1FF"
 
-########
-## Orthogroups
-########
-
-## import orthogroups levels
-orthogroups.levels<-read.table("shared/orthogroups_factor.txt", head=F)
-orthogroups.T7.df<-read.table("shared/orthologs.T7.DE_results.tab", head=T, colClasses=c(rep(c("character","numeric","numeric","numeric","factor","factor","factor"),2),"numeric"))
-orthogroups.T24.df<-read.table("shared/orthologs.T24.DE_results.tab", head=T, colClasses=c(rep(c("character","numeric","numeric","numeric","factor","factor","factor"),2),"numeric"))
-# write.table(orthogroups.T7.df, file="orthogroups.T7.df.txt", quote=F, sep="\t", row.names=F)
-# write.table(orthogroups.T24.df, file="orthogroups.T24.df.txt", quote=F, sep="\t", row.names=F)
-str(orthogroups.T7.df)
-
-## number of up genes shared Ar (g1) T7
-shared.up.T7.ricciae<-length(sort(unique(subset(orthogroups.T7.df$g1, orthogroups.T7.df$is.DE.up.g1==1 & orthogroups.T7.df$is.DE.up.g2==1 & grepl("ARIC", orthogroups.T7.df$g1) & grepl("AVAG", orthogroups.T7.df$g2)))))
-## number of up genes shared Av (g2) T7
-shared.up.T7.vaga<-length(sort(unique(subset(orthogroups.T7.df$g2, orthogroups.T7.df$is.DE.up.g1==1 & orthogroups.T7.df$is.DE.up.g2==1 & grepl("ARIC", orthogroups.T7.df$g1) & grepl("AVAG", orthogroups.T7.df$g2)))))
-## number of up genes shared Ar (g1) T24
-shared.up.T24.ricciae<-length(sort(unique(subset(orthogroups.T24.df$g1, orthogroups.T24.df$is.DE.up.g1==1 & orthogroups.T24.df$is.DE.up.g2==1 & grepl("ARIC", orthogroups.T24.df$g1) & grepl("AVAG", orthogroups.T24.df$g2)))))
-## number of up genes shared Av (g2) T24
-shared.up.T24.vaga<-length(sort(unique(subset(orthogroups.T24.df$g2, orthogroups.T24.df$is.DE.up.g1==1 & orthogroups.T24.df$is.DE.up.g2==1 & grepl("ARIC", orthogroups.T24.df$g1) & grepl("AVAG", orthogroups.T24.df$g2)))))
-##
-## number of down genes shared Ar (g1) T7
-shared.down.T7.ricciae<-length(sort(unique(subset(orthogroups.T7.df$g1, orthogroups.T7.df$is.DE.down.g1==1 & orthogroups.T7.df$is.DE.down.g2==1 & grepl("ARIC", orthogroups.T7.df$g1) & grepl("AVAG", orthogroups.T7.df$g2)))))
-## number of down genes shared Av (g2) T7
-shared.down.T7.vaga<-length(sort(unique(subset(orthogroups.T7.df$g2, orthogroups.T7.df$is.DE.down.g1==1 & orthogroups.T7.df$is.DE.down.g2==1 & grepl("ARIC", orthogroups.T7.df$g1) & grepl("AVAG", orthogroups.T7.df$g2)))))
-## number of down genes shared Ar (g1) T24
-shared.down.T24.ricciae<-length(sort(unique(subset(orthogroups.T24.df$g1, orthogroups.T24.df$is.DE.down.g1==1 & orthogroups.T24.df$is.DE.down.g2==1 & grepl("ARIC", orthogroups.T24.df$g1) & grepl("AVAG", orthogroups.T24.df$g2)))))
-## number of down genes shared Av (g2) T24
-shared.down.T24.vaga<-length(sort(unique(subset(orthogroups.T24.df$g2, orthogroups.T24.df$is.DE.down.g1==1 & orthogroups.T24.df$is.DE.down.g2==1 & grepl("ARIC", orthogroups.T24.df$g1) & grepl("AVAG", orthogroups.T24.df$g2)))))
-
-########
-## Av
-########
-
+## get data
 vaga.df<-read.table("../../results/collated_Av.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
-## check
-str(vaga.df)
-head(vaga.df)
-
-########
-## Ar
-########
-
 ricciae.df<-read.table("../../results/collated_Ar.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
-str(ricciae.df)
-head(ricciae.df)
 
-## tabulate numbers of DE genes
-## Av
-table(vaga.df$t7.is_DE)
-table(vaga.df$t7.is_DE_up)
-table(vaga.df$t7.is_DE_down)
-table(vaga.df$t24.is_DE)
-table(vaga.df$t24.is_DE_up)
-table(vaga.df$t24.is_DE_down)
-## %
-round(table(vaga.df$t7.is_DE)/nrow(vaga.df)*100, 2) ## % genes DE at T7
-round(table(vaga.df$t24.is_DE)/nrow(vaga.df)*100, 2) ## % genes DE at T24
-
-## Ar
-table(ricciae.df$t7.is_DE)
-table(ricciae.df$t7.is_DE_up)
-table(ricciae.df$t7.is_DE_down)
-table(ricciae.df$t24.is_DE)
-table(ricciae.df$t24.is_DE_up)
-table(ricciae.df$t24.is_DE_down)
-## %
-round(table(ricciae.df$t7.is_DE)/nrow(vaga.df)*100, 2) ## % genes DE at T7
-round(table(ricciae.df$t24.is_DE)/nrow(vaga.df)*100, 2) ## % genes DE at T24
-
-## bootstrap dfs
+## generate bootstrap numbers for error bars
 boots.df<-data.frame(matrix(nrow=100, ncol=8))
 colnames(boots.df)<-c("Av.t7.up","Ar.t7.up","Av.t7.down","Ar.t7.down","Av.t24.up","Ar.t24.up","Av.t24.down","Ar.t24.down")
 head(boots.df)
@@ -107,7 +31,7 @@ head(boots.df)
 str(boots.df)
 
 ## load infectivity data
-infection.df<-read.table("../../data/infectivity_data/infectivity.txt", head=T)
+infection.df<-read.table("data/infectivity_data/infectivity.txt", head=T)
 infection.df$rotifer<-factor(infection.df$rotifer, levels=c("AD008","AD001"))
 str(infection.df)
 ## summary of infectivity
@@ -123,7 +47,7 @@ t.test(infection.df$infprop_72~infection.df$rotifer)
 
 ## CROSS-SPECIES PCA
 ## get data
-tmm.df <- read.table("../../data/pca/mean_TMM.per_rep_OG.both_species.txt", head=T)
+tmm.df <- read.table("data/pca/mean_TMM.per_rep_OG.both_species.txt", head=T)
 
 pca <- prcomp(tmm.df, center=F, scale.=F)
 pc_pct_variance = (pca$sdev^2)/sum(pca$sdev^2)
@@ -223,5 +147,50 @@ legend("topright", c("A. vaga","A. ricciae","T7 Control","T7 Treatment","T24 Con
 
 ## draw box
 box(bty="l", lwd=2)
-  
 
+#############
+## PLOT euler
+#############
+
+library(eulerr)
+library(cowplot)
+
+## lists of DE up genes
+vaga.up <- list(
+  T7 = subset(vaga.df$feature, vaga.df$t7.is_DE_up==1),
+  T24 = subset(vaga.df$feature, vaga.df$t24.is_DE_up==1)
+)
+vaga.down <- list(
+  T7 = subset(vaga.df$feature, vaga.df$t7.is_DE_down==1),
+  T24 = subset(vaga.df$feature, vaga.df$t24.is_DE_down==1)
+)
+
+ricciae.up <- list(
+  T7 = subset(ricciae.df$feature, ricciae.df$t7.is_DE_up==1),
+  T24 = subset(ricciae.df$feature, ricciae.df$t24.is_DE_up==1)
+)
+ricciae.down <- list(
+  T7 = subset(ricciae.df$feature, ricciae.df$t7.is_DE_down==1),
+  T24 = subset(ricciae.df$feature, ricciae.df$t24.is_DE_down==1)
+)
+
+## make plots
+p1 <- plot(euler(vaga.up), 
+           fills=list(fill=c("grey80","grey80",Av.col)), lty=c(1,2),
+           quantities=list(type=c("counts","percent"), fontsize=8), 
+           main=list(label=expression(bolditalic("A. vaga")~bold("up")), fontsize=8))
+p2 <- plot(euler(vaga.down), 
+           fills=list(fill=c("grey80","grey80",Av.col)), lty=c(1,2), 
+           quantities=list(type=c("counts","percent"), fontsize=8), 
+           main=list(label=expression(bolditalic("A. vaga")~bold("down")), fontsize=8))
+p3 <- plot(euler(ricciae.up), 
+           fills=list(fill=c("grey80","grey80",Ar.col)), lty=c(1,2), 
+           quantities=list(type=c("counts","percent"), fontsize=8), 
+           main=list(label=expression(bolditalic("A. ricciae")~bold("up")), fontsize=8))
+p4 <- plot(euler(ricciae.down), 
+           fills=list(fill=c("grey80","grey80",Ar.col)), lty=c(1,2), 
+           quantities=list(type=c("counts","percent"), fontsize=8), 
+           main=list(label=expression(bolditalic("A. ricciae")~bold("down")), fontsize=8))
+
+## plot
+plot_grid(p1,p2,p3,p4, nrow=1, labels=NA)
