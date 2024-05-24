@@ -5,8 +5,8 @@ Av.col<-"#F44B19"
 Ar.col<-"#01AAEA"
 
 ## get data
-vaga.df<-read.table("../../results/collated_Av.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
-ricciae.df<-read.table("../../results/collated_Ar.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
+vaga.df<-read.table("results/collated_Av.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
+ricciae.df<-read.table("results/collated_Ar.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
 
 ## generate bootstrap numbers for error bars
 boots.df<-data.frame(matrix(nrow=100, ncol=8))

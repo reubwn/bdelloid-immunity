@@ -1,83 +1,39 @@
-setwd("~/Dropbox/Reuben/Red_Queen/results/GP180467_RNA-seq/gentrome_out/")
+setwd("~/software/github/bdelloid-immunity/")
 
-library(RColorBrewer)
 library(cowplot)
-library(plotrix)
 library(gridExtra)
 library(ggVennDiagram)
 library(ggplot2)
 
 ## cols
-Av.col<-"#F44B19"
-Av.col.vlight<-"#FDD8CE"
-Ar.col<-"#01AAEA"
-Ar.col.vlight<-"#CCF1FF"
-hgt.col<-"#1C376D"
-pals.Av <- colorRampPalette(c(Av.col.vlight,Av.col))(4)
+Av.col <- "#F44B19"
+Av.col.vlight <- "#FDD8CE"
+Ar.col <- "#01AAEA"
+Ar.col.vlight <- "#CCF1FF"
 
-## import orthogroups levels
-orthogroups.levels<-read.table("shared/orthogroups_factor.txt", head=F)
+## get data
+vaga.df<-read.table("results/collated_Av.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
+ricciae.df<-read.table("results/collated_Ar.DESeq2_P1e-3_C2.DE_results.tab", head=T, colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
 
-########
-## Av
-########
-
-vaga.df<-read.table("vaga/collated.DESeq2_P1e-3_C2.DE_results.tab", head=T, 
-                    colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
-## add orthogroup factor levels to allow for control of OG as a random effect
-vaga.df$orthogroup<-orthogroups.levels$V2[match(vaga.df$feature, orthogroups.levels$V1)]
-
-## check
-str(vaga.df)
-head(vaga.df)
-
-## tabulations
-table(vaga.df$t7.is_DE)/nrow(vaga.df)*100 ## % genes DE at T7
-table(vaga.df$t24.is_DE)/nrow(vaga.df)*100 ## % genes DE at T24
-table(vaga.df$is.HGT) ## num genes HGTc
-table(vaga.df$is.HGT)/nrow(vaga.df)*100 ## % genes HGTc
-
-## fisher exact tests
-## run on reduced HGT column, otherwise genes with no HGT information (NA) are excluded, which is probably incorrect
 ## t7 up
 Av.t7.is_DE_up.table<-table(vaga.df$t7.is_DE_up[vaga.df$t7.is_DE_down!=1], vaga.df$is.HGT[vaga.df$t7.is_DE_down!=1])
-rownames(Av.t7.is_DE_up.table)<-c("DE0","DE1"); colnames(Av.t7.is_DE_up.table)<-c("HGT0","HGT1"); Av.t7.is_DE_up.table
-  ## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Av.t7.is_DE_up.table)) {
-  print(round((Av.t7.is_DE_up.table[i,2]/rowSums(Av.t7.is_DE_up.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Av.t7.is_DE_up.table.fisher<-fisher.test(Av.t7.is_DE_up.table); Av.t7.is_DE_up.table.fisher
+Av.t7.is_DE_up.table.fisher<-fisher.test(Av.t7.is_DE_up.table)
 
 ## t7 down
 Av.t7.is_DE_down.table<-table(vaga.df$t7.is_DE_down[vaga.df$t7.is_DE_up!=1], vaga.df$is.HGT[vaga.df$t7.is_DE_up!=1])
-rownames(Av.t7.is_DE_down.table)<-c("DE0","DE1"); colnames(Av.t7.is_DE_down.table)<-c("HGT0","HGT1"); Av.t7.is_DE_down.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Av.t7.is_DE_down.table)) {
-  print(round((Av.t7.is_DE_down.table[i,2]/rowSums(Av.t7.is_DE_down.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Av.t7.is_DE_down.table.fisher<-fisher.test(Av.t7.is_DE_down.table); Av.t7.is_DE_down.table.fisher
+Av.t7.is_DE_down.table.fisher<-fisher.test(Av.t7.is_DE_down.table)
 
 ## t24 up
 Av.t24.is_DE_up.table<-table(vaga.df$t24.is_DE_up[vaga.df$t24.is_DE_down!=1], vaga.df$is.HGT[vaga.df$t24.is_DE_down!=1])
-rownames(Av.t24.is_DE_up.table)<-c("DE0","DE1"); colnames(Av.t24.is_DE_up.table)<-c("HGT0","HGT1"); Av.t24.is_DE_up.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Av.t24.is_DE_up.table)) {
-  print(round((Av.t24.is_DE_up.table[i,2]/rowSums(Av.t24.is_DE_up.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Av.t24.is_DE_up.table.fisher<-fisher.test(Av.t24.is_DE_up.table); Av.t24.is_DE_up.table.fisher
+Av.t24.is_DE_up.table.fisher<-fisher.test(Av.t24.is_DE_up.table)
 
 ## t24 down
 Av.t24.is_DE_down.table<-table(vaga.df$t24.is_DE_down[vaga.df$t24.is_DE_up!=1], vaga.df$is.HGT[vaga.df$t24.is_DE_up!=1])
-rownames(Av.t24.is_DE_down.table)<-c("DE0","DE1"); colnames(Av.t24.is_DE_down.table)<-c("HGT0","HGT1"); Av.t24.is_DE_down.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Av.t24.is_DE_down.table)) {
-  print(round((Av.t24.is_DE_down.table[i,2]/rowSums(Av.t24.is_DE_down.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Av.t24.is_DE_down.table.fisher<-fisher.test(Av.t24.is_DE_down.table); Av.t24.is_DE_down.table.fisher
+Av.t24.is_DE_down.table.fisher<-fisher.test(Av.t24.is_DE_down.table)
 
 ## plot the volcanoes
 Av.t7.volcano<-~{
@@ -167,67 +123,28 @@ Av.t24.volcano<-~{
   
 }
 
-
-########
-## Ar
-########
-
-ricciae.df<-read.table("ricciae/collated.DESeq2_P1e-3_C2.DE_results.tab", head=T, 
-                       colClasses=c("character",rep("factor",3),rep("numeric",3),"factor","factor","integer",rep(c(rep("factor",3),rep("numeric",3)),2)))
-## add orthogroup factor levels to allow for control of OG as a random effect
-ricciae.df$orthogroup<-orthogroups.levels$V2[match(ricciae.df$feature, orthogroups.levels$V1)]
-
-## check
-str(ricciae.df)
-head(ricciae.df)
-
-## tabulations
-table(ricciae.df$t7.is_DE)/nrow(ricciae.df)*100
-table(ricciae.df$t24.is_DE)/nrow(ricciae.df)*100
-table(ricciae.df$is.HGT) ## how many genes are HGTc
-table(ricciae.df$is.HGT)/nrow(ricciae.df)*100
-
 ## fisher exact tests
 ## run on reduced HGT column, otherwise genes with no HGT information (NA) are excluded, which is probably incorrect
 ## t7 up
 Ar.t7.is_DE_up.table<-table(ricciae.df$t7.is_DE_up[ricciae.df$t7.is_DE_down!=1], ricciae.df$is.HGT[ricciae.df$t7.is_DE_down!=1])
-rownames(Ar.t7.is_DE_up.table)<-c("DE0","DE1"); colnames(Ar.t7.is_DE_up.table)<-c("HGT0","HGT1"); Ar.t7.is_DE_up.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Ar.t7.is_DE_up.table)) {
-  print(round((Ar.t7.is_DE_up.table[i,2]/rowSums(Ar.t7.is_DE_up.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Ar.t7.is_DE_up.table.fisher<-fisher.test(Ar.t7.is_DE_up.table); Ar.t7.is_DE_up.table.fisher
+Ar.t7.is_DE_up.table.fisher<-fisher.test(Ar.t7.is_DE_up.table)
 
 ## t7 down
 Ar.t7.is_DE_down.table<-table(ricciae.df$t7.is_DE_down[ricciae.df$t7.is_DE_up!=1], ricciae.df$is.HGT[ricciae.df$t7.is_DE_up!=1])
-rownames(Ar.t7.is_DE_down.table)<-c("DE0","DE1"); colnames(Ar.t7.is_DE_down.table)<-c("HGT0","HGT1"); Ar.t7.is_DE_down.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Ar.t7.is_DE_down.table)) {
-  print(round((Ar.t7.is_DE_down.table[i,2]/rowSums(Ar.t7.is_DE_down.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Ar.t7.is_DE_down.table.fisher<-fisher.test(Ar.t7.is_DE_down.table); Ar.t7.is_DE_down.table.fisher
+Ar.t7.is_DE_down.table.fisher<-fisher.test(Ar.t7.is_DE_down.table)
 
 ## t24 up
 Ar.t24.is_DE_up.table<-table(ricciae.df$t24.is_DE_up[ricciae.df$t24.is_DE_down!=1], ricciae.df$is.HGT[ricciae.df$t24.is_DE_down!=1])
-rownames(Ar.t24.is_DE_up.table)<-c("DE0","DE1"); colnames(Ar.t24.is_DE_up.table)<-c("HGT0","HGT1"); Ar.t24.is_DE_up.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Ar.t24.is_DE_up.table)) {
-  print(round((Ar.t24.is_DE_up.table[i,2]/rowSums(Ar.t24.is_DE_up.table)[i])*100, digits=1))
-}
+
 ## Fisher's test
-Ar.t24.is_DE_up.table.fisher<-fisher.test(Ar.t24.is_DE_up.table); Ar.t24.is_DE_up.table.fisher
+Ar.t24.is_DE_up.table.fisher<-fisher.test(Ar.t24.is_DE_up.table)
 
 ## t24 down
 Ar.t24.is_DE_down.table<-table(ricciae.df$t24.is_DE_down[ricciae.df$t24.is_DE_up!=1], ricciae.df$is.HGT[ricciae.df$t24.is_DE_up!=1])
-rownames(Ar.t24.is_DE_down.table)<-c("DE0","DE1"); colnames(Ar.t24.is_DE_down.table)<-c("HGT0","HGT1"); Ar.t24.is_DE_down.table
-## print % of HGT in both DE0 and DE1
-for (i in 1:nrow(Ar.t24.is_DE_down.table)) {
-  print(round((Ar.t24.is_DE_down.table[i,2]/rowSums(Ar.t24.is_DE_down.table)[i])*100, digits=1))
-}
 ## Fisher's test
-Ar.t24.is_DE_down.table.fisher<-fisher.test(Ar.t24.is_DE_down.table); Ar.t24.is_DE_down.table.fisher
+Ar.t24.is_DE_down.table.fisher<-fisher.test(Ar.t24.is_DE_down.table)
 
 
 ## plot the volcanoes
@@ -453,4 +370,13 @@ Ar.t24.bar<-~{
   box(bty="l", lwd=2)
   
 }
+
+## BIG PLOT
+## bars above
+plot_grid(Av.t7.bar, Av.t24.bar,
+          Av.t7.volcano, Av.t24.volcano, 
+          Ar.t7.bar, Ar.t24.bar,
+          Ar.t7.volcano, Ar.t24.volcano, 
+          ncol=2, rel_heights = c(1,1.5),
+          labels=c("a","","","","b"))
 
