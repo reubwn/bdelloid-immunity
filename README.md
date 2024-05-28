@@ -5,4 +5,4 @@ A repository for all custom analysis and plotting scripts for the manuscript 'Bd
 
 ## Wiki
 
-See the wiki for a full walkthrough of core analyses, custom scripts and source data for plotting, [here](https://github.com/reubwn/bdelloid-immunity/wiki). 
+See the [wiki](https://github.com/reubwn/bdelloid-immunity/wiki) for a full walkthrough of core analyses, custom scripts and source data for plotting. 
