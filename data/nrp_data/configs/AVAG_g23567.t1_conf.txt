@@ -1,0 +1,19 @@
+AVAG|g23567.t1	PF00668	Condensation domain	grey50	white	C
+AVAG|g23567.t1	PF00501	AMP-binding enzyme	white	black	A
+AVAG|g23567.t1	PF00550	Phosphopantetheine attachment site	black	white	PP
+AVAG|g23567.t1	PF00109	Beta-ketoacyl synthase, N-terminal domain	#F7CEE3	black	KSN
+AVAG|g23567.t1	PF02801	Beta-ketoacyl synthase, C-terminal domain	#C0D667	black	KSC
+AVAG|g23567.t1	PF16197	Ketoacyl-synthetase C-terminal extension	#D5D6A3	black	KSE
+AVAG|g23567.t1	PF08659	KR domain	#EFBB63	black	KR
+AVAG|g23567.t1	PF00550	Phosphopantetheine attachment site	black	white	PP
+AVAG|g23567.t1	PF00975	Thioesterase domain	#DDEBA6	black	TE
+AVAG|g23567.t1	PF00109	Beta-ketoacyl synthase, N-terminal domain	#F7CEE3	black	KSN
+AVAG|g23567.t1	PF02801	Beta-ketoacyl synthase, C-terminal domain	#C0D667	black	KSC
+AVAG|g23567.t1	PF14765	Polyketide synthase dehydratase	#CDB4CD	black	PKS
+AVAG|g23567.t1	PF08659	KR domain	#EFBB63	black	KR
+AVAG|g23567.t1	PF00550	Phosphopantetheine attachment site	black	white	PP
+AVAG|g23567.t1	PF00109	Beta-ketoacyl synthase, N-terminal domain	#F7CEE3	black	KSN
+AVAG|g23567.t1	PF02801	Beta-ketoacyl synthase, C-terminal domain	#C0D667	black	KSC
+AVAG|g23567.t1	PF16197	Ketoacyl-synthetase C-terminal extension	#D5D6A3	black	KSE
+AVAG|g23567.t1	PF14765	Polyketide synthase dehydratase	#CDB4CD	black	PKS
+AVAG|g23567.t1	PF08659	KR domain	#EFBB63	black	KR

@@ -1,0 +1,3 @@
+ARIC|g51958.t1	PF00550	Phosphopantetheine attachment site	black	white	PP
+ARIC|g51958.t1	PF00501	AMP-binding enzyme	white	black	A
+ARIC|g51958.t1	PF00550	Phosphopantetheine attachment site	black	white	PP

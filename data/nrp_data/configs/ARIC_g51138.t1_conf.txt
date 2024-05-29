@@ -1,0 +1,2 @@
+ARIC|g51138.t1	PF00668	Condensation domain	grey50	white	C
+ARIC|g51138.t1	PF00501	AMP-binding enzyme	white	black	A

@@ -1,0 +1,248 @@
+ARIC|g15363.t1	1830	Pfam	PF00501	AMP-binding enzyme	119	523
+ARIC|g15363.t1	1830	Pfam	PF13193	AMP-binding enzyme C-terminal domain	532	601
+ARIC|g15363.t1	1830	Pfam	PF00550	Phosphopantetheine attachment site	632	697
+ARIC|g15363.t1	1830	Pfam	PF00668	Condensation domain	759	963
+ARIC|g15363.t1	1830	Pfam	PF00501	AMP-binding enzyme	1013	1410
+ARIC|g15363.t1	1830	Pfam	PF00668	Condensation domain	1615	1823
+ARIC|g21374.t1	1894	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	1	257
+ARIC|g21374.t1	1894	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	332	384
+ARIC|g21374.t1	1894	Pfam	PF00698	Acyl transferase domain	564	889
+ARIC|g21374.t1	1894	Pfam	PF00550	Phosphopantetheine attachment site	971	1039
+ARIC|g21374.t1	1894	Pfam	PF00668	Condensation domain	1111	1560
+ARIC|g21374.t1	1894	Pfam	PF00501	AMP-binding enzyme	1609	1882
+ARIC|g22315.t1	3806	Pfam	PF00668	Condensation domain	188	626
+ARIC|g22315.t1	3806	Pfam	PF00668	Condensation domain	671	1118
+ARIC|g22315.t1	3806	Pfam	PF00501	AMP-binding enzyme	1166	1570
+ARIC|g22315.t1	3806	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1579	1647
+ARIC|g22315.t1	3806	Pfam	PF00668	Condensation domain	1817	2222
+ARIC|g22315.t1	3806	Pfam	PF00501	AMP-binding enzyme	2267	2664
+ARIC|g22315.t1	3806	Pfam	PF00668	Condensation domain	3300	3740
+ARIC|g31238.t1	3693	Pfam	PF00668	Condensation domain	51	491
+ARIC|g31238.t1	3693	Pfam	PF00501	AMP-binding enzyme	515	918
+ARIC|g31238.t1	3693	Pfam	PF13193	AMP-binding enzyme C-terminal domain	926	1001
+ARIC|g31238.t1	3693	Pfam	PF00668	Condensation domain	1121	1552
+ARIC|g31238.t1	3693	Pfam	PF00501	AMP-binding enzyme	1593	1986
+ARIC|g31238.t1	3693	Pfam	PF00668	Condensation domain	2150	2559
+ARIC|g31238.t1	3693	Pfam	PF00501	AMP-binding enzyme	2561	2923
+ARIC|g31238.t1	3693	Pfam	PF00550	Phosphopantetheine attachment site	3037	3100
+ARIC|g31238.t1	3693	Pfam	PF00668	Condensation domain	3145	3559
+ARIC|g31238.t1	3693	Pfam	PF00550	Phosphopantetheine attachment site	3611	3675
+ARIC|g33808.t1	4663	Pfam	PF00501	AMP-binding enzyme	13	421
+ARIC|g33808.t1	4663	Pfam	PF00550	Phosphopantetheine attachment site	536	601
+ARIC|g33808.t1	4663	Pfam	PF00668	Condensation domain	623	1066
+ARIC|g33808.t1	4663	Pfam	PF00668	Condensation domain	1127	1536
+ARIC|g33808.t1	4663	Pfam	PF00501	AMP-binding enzyme	1575	1982
+ARIC|g33808.t1	4663	Pfam	PF00550	Phosphopantetheine attachment site	2092	2155
+ARIC|g33808.t1	4663	Pfam	PF00668	Condensation domain	2186	2643
+ARIC|g33808.t1	4663	Pfam	PF00501	AMP-binding enzyme	2666	3061
+ARIC|g33808.t1	4663	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	3336	3581
+ARIC|g33808.t1	4663	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	3595	3712
+ARIC|g33808.t1	4663	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	3715	3814
+ARIC|g33808.t1	4663	Pfam	PF00698	Acyl transferase domain	3871	4136
+ARIC|g33808.t1	4663	Pfam	PF00550	Phosphopantetheine attachment site	4287	4349
+ARIC|g33808.t1	4663	Pfam	PF00975	Thioesterase domain	4386	4511
+ARIC|g34149.t1	1455	Pfam	PF00668	Condensation domain	4	161
+ARIC|g34149.t1	1455	Pfam	PF00501	AMP-binding enzyme	208	608
+ARIC|g34149.t1	1455	Pfam	PF13193	AMP-binding enzyme C-terminal domain	634	684
+ARIC|g34149.t1	1455	Pfam	PF00550	Phosphopantetheine attachment site	715	775
+ARIC|g34292.t1	2663	Pfam	PF00668	Condensation domain	40	188
+ARIC|g34292.t1	2663	Pfam	PF00668	Condensation domain	199	410
+ARIC|g34292.t1	2663	Pfam	PF00501	AMP-binding enzyme	440	840
+ARIC|g34292.t1	2663	Pfam	PF13193	AMP-binding enzyme C-terminal domain	848	923
+ARIC|g34292.t1	2663	Pfam	PF00668	Condensation domain	1041	1457
+ARIC|g34292.t1	2663	Pfam	PF00501	AMP-binding enzyme	1499	1902
+ARIC|g34292.t1	2663	Pfam	PF00550	Phosphopantetheine attachment site	2016	2076
+ARIC|g34292.t1	2663	Pfam	PF00668	Condensation domain	2125	2542
+ARIC|g34292.t1	2663	Pfam	PF00550	Phosphopantetheine attachment site	2586	2651
+ARIC|g35898.t1	1996	Pfam	PF00668	Condensation domain	22	476
+ARIC|g35898.t1	1996	Pfam	PF00668	Condensation domain	512	949
+ARIC|g35898.t1	1996	Pfam	PF00501	AMP-binding enzyme	1003	1394
+ARIC|g35898.t1	1996	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1410	1467
+ARIC|g35898.t1	1996	Pfam	PF00550	Phosphopantetheine attachment site	1497	1558
+ARIC|g35898.t1	1996	Pfam	PF00668	Condensation domain	1589	1988
+ARIC|g39410.t1	2597	Pfam	PF00501	AMP-binding enzyme	16	154
+ARIC|g39410.t1	2597	Pfam	PF00550	Phosphopantetheine attachment site	273	322
+ARIC|g39410.t1	2597	Pfam	PF00668	Condensation domain	504	819
+ARIC|g39410.t1	2597	Pfam	PF00668	Condensation domain	861	1311
+ARIC|g39410.t1	2597	Pfam	PF00501	AMP-binding enzyme	1352	1752
+ARIC|g39410.t1	2597	Pfam	PF00550	Phosphopantetheine attachment site	1860	1922
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	19	467
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	510	959
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	1086	1357
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	1560	1984
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	2029	2424
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	3063	3505
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	3549	4009
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	4048	4447
+ARIC|g40867.t1	7781	Pfam	PF13193	AMP-binding enzyme C-terminal domain	4456	4524
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	4647	5093
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	5167	5581
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	5628	5707
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	5725	5994
+ARIC|g40867.t1	7781	Pfam	PF13193	AMP-binding enzyme C-terminal domain	6003	6070
+ARIC|g40867.t1	7781	Pfam	PF00550	Phosphopantetheine attachment site	6106	6168
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	6201	6647
+ARIC|g40867.t1	7781	Pfam	PF00668	Condensation domain	6729	7142
+ARIC|g40867.t1	7781	Pfam	PF00501	AMP-binding enzyme	7184	7582
+ARIC|g40867.t1	7781	Pfam	PF13193	AMP-binding enzyme C-terminal domain	7592	7660
+ARIC|g40867.t1	7781	Pfam	PF00550	Phosphopantetheine attachment site	7692	7753
+ARIC|g42529.t1	2618	Pfam	PF00501	AMP-binding enzyme	13	416
+ARIC|g42529.t1	2618	Pfam	PF13193	AMP-binding enzyme C-terminal domain	438	499
+ARIC|g42529.t1	2618	Pfam	PF00668	Condensation domain	613	1054
+ARIC|g42529.t1	2618	Pfam	PF00501	AMP-binding enzyme	1078	1471
+ARIC|g42529.t1	2618	Pfam	PF00550	Phosphopantetheine attachment site	1576	1639
+ARIC|g42529.t1	2618	Pfam	PF00668	Condensation domain	1662	2120
+ARIC|g42529.t1	2618	Pfam	PF00550	Phosphopantetheine attachment site	2141	2204
+ARIC|g42529.t1	2618	Pfam	PF01494	FAD binding domain	2220	2569
+ARIC|g43428.t1	1671	Pfam	PF00668	Condensation domain	42	448
+ARIC|g43428.t1	1671	Pfam	PF00501	AMP-binding enzyme	496	896
+ARIC|g43428.t1	1671	Pfam	PF13193	AMP-binding enzyme C-terminal domain	917	973
+ARIC|g43428.t1	1671	Pfam	PF00550	Phosphopantetheine attachment site	1005	1050
+ARIC|g43428.t1	1671	Pfam	PF00668	Condensation domain	1096	1385
+ARIC|g43428.t1	1671	Pfam	PF00501	AMP-binding enzyme	1407	1671
+ARIC|g43771.t1	1720	Pfam	PF00668	Condensation domain	3	434
+ARIC|g43771.t1	1720	Pfam	PF00501	AMP-binding enzyme	472	876
+ARIC|g43771.t1	1720	Pfam	PF13193	AMP-binding enzyme C-terminal domain	903	952
+ARIC|g43771.t1	1720	Pfam	PF00550	Phosphopantetheine attachment site	984	1046
+ARIC|g43873.t1	2805	Pfam	PF00668	Condensation domain	13	423
+ARIC|g43873.t1	2805	Pfam	PF00501	AMP-binding enzyme	464	868
+ARIC|g43873.t1	2805	Pfam	PF13193	AMP-binding enzyme C-terminal domain	876	945
+ARIC|g43873.t1	2805	Pfam	PF00550	Phosphopantetheine attachment site	978	1041
+ARIC|g43873.t1	2805	Pfam	PF00668	Condensation domain	1065	1509
+ARIC|g43873.t1	2805	Pfam	PF00501	AMP-binding enzyme	1555	1959
+ARIC|g43873.t1	2805	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1976	2033
+ARIC|g43873.t1	2805	Pfam	PF00550	Phosphopantetheine attachment site	2075	2128
+ARIC|g43873.t1	2805	Pfam	PF00132	Bacterial transferase hexapeptide (six repeats)	2310	2344
+ARIC|g45452.t1	1621	Pfam	PF00668	Condensation domain	11	321
+ARIC|g45452.t1	1621	Pfam	PF00501	AMP-binding enzyme	376	776
+ARIC|g45452.t1	1621	Pfam	PF13193	AMP-binding enzyme C-terminal domain	790	852
+ARIC|g45452.t1	1621	Pfam	PF00550	Phosphopantetheine attachment site	883	944
+ARIC|g46120.t1	941	Pfam	PF00668	Condensation domain	21	280
+ARIC|g46120.t1	941	Pfam	PF00501	AMP-binding enzyme	330	727
+ARIC|g46120.t1	941	Pfam	PF13193	AMP-binding enzyme C-terminal domain	759	804
+ARIC|g46663.t1	4395	Pfam	PF00501	AMP-binding enzyme	30	458
+ARIC|g46663.t1	4395	Pfam	PF00550	Phosphopantetheine attachment site	577	644
+ARIC|g46663.t1	4395	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	677	931
+ARIC|g46663.t1	4395	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	939	1057
+ARIC|g46663.t1	4395	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	1061	1174
+ARIC|g46663.t1	4395	Pfam	PF00698	Acyl transferase domain	1240	1546
+ARIC|g46663.t1	4395	Pfam	PF14765	Polyketide synthase dehydratase	1632	1962
+ARIC|g46663.t1	4395	Pfam	PF08242	Methyltransferase domain	2216	2328
+ARIC|g46663.t1	4395	Pfam	PF00107	Zinc-binding dehydrogenase	2810	2892
+ARIC|g46663.t1	4395	Pfam	PF08659	KR domain	3013	3198
+ARIC|g46663.t1	4395	Pfam	PF00975	Thioesterase domain	3437	3523
+ARIC|g46663.t1	4395	Pfam	PF00668	Condensation domain	3805	4255
+ARIC|g46675.t1	1616	Pfam	PF00550	Phosphopantetheine attachment site	15	75
+ARIC|g46675.t1	1616	Pfam	PF00668	Condensation domain	98	333
+ARIC|g46675.t1	1616	Pfam	PF00501	AMP-binding enzyme	498	903
+ARIC|g46675.t1	1616	Pfam	PF13193	AMP-binding enzyme C-terminal domain	911	984
+ARIC|g46675.t1	1616	Pfam	PF00550	Phosphopantetheine attachment site	1017	1080
+ARIC|g46675.t1	1616	Pfam	PF00668	Condensation domain	1101	1548
+ARIC|g47056.t1	1562	Pfam	PF00668	Condensation domain	2	322
+ARIC|g47056.t1	1562	Pfam	PF00501	AMP-binding enzyme	364	581
+ARIC|g47056.t1	1562	Pfam	PF00501	AMP-binding enzyme	601	717
+ARIC|g47056.t1	1562	Pfam	PF13193	AMP-binding enzyme C-terminal domain	736	794
+ARIC|g47799.t1	1080	Pfam	PF00668	Condensation domain	2	449
+ARIC|g47799.t1	1080	Pfam	PF00501	AMP-binding enzyme	473	868
+ARIC|g47799.t1	1080	Pfam	PF13193	AMP-binding enzyme C-terminal domain	876	949
+ARIC|g47799.t1	1080	Pfam	PF00550	Phosphopantetheine attachment site	982	1045
+ARIC|g48209.t1	4488	Pfam	PF00501	AMP-binding enzyme	12	421
+ARIC|g48209.t1	4488	Pfam	PF13193	AMP-binding enzyme C-terminal domain	444	505
+ARIC|g48209.t1	4488	Pfam	PF00501	AMP-binding enzyme	648	1190
+ARIC|g48209.t1	4488	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1199	1293
+ARIC|g48209.t1	4488	Pfam	PF00550	Phosphopantetheine attachment site	1523	1568
+ARIC|g48209.t1	4488	Pfam	PF00668	Condensation domain	1630	2044
+ARIC|g48209.t1	4488	Pfam	PF00501	AMP-binding enzyme	2250	2675
+ARIC|g48209.t1	4488	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	2979	3231
+ARIC|g48209.t1	4488	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	3240	3358
+ARIC|g48209.t1	4488	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	3366	3480
+ARIC|g48209.t1	4488	Pfam	PF00698	Acyl transferase domain	3544	3833
+ARIC|g48209.t1	4488	Pfam	PF00550	Phosphopantetheine attachment site	4045	4107
+ARIC|g48209.t1	4488	Pfam	PF00975	Thioesterase domain	4221	4480
+ARIC|g48980.t1	2460	Pfam	PF00501	AMP-binding enzyme	1	338
+ARIC|g48980.t1	2460	Pfam	PF13193	AMP-binding enzyme C-terminal domain	356	413
+ARIC|g48980.t1	2460	Pfam	PF00668	Condensation domain	537	983
+ARIC|g48980.t1	2460	Pfam	PF00668	Condensation domain	1018	1467
+ARIC|g48980.t1	2460	Pfam	PF00501	AMP-binding enzyme	1478	1731
+ARIC|g48980.t1	2460	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1761	1806
+ARIC|g48980.t1	2460	Pfam	PF00550	Phosphopantetheine attachment site	1839	1903
+ARIC|g48980.t1	2460	Pfam	PF00668	Condensation domain	1927	2256
+ARIC|g49019.t1	1386	Pfam	PF00501	AMP-binding enzyme	2	342
+ARIC|g49019.t1	1386	Pfam	PF00550	Phosphopantetheine attachment site	385	450
+ARIC|g49019.t1	1386	Pfam	PF00668	Condensation domain	474	908
+ARIC|g49019.t1	1386	Pfam	PF00501	AMP-binding enzyme	958	1360
+ARIC|g49714.t1	1650	Pfam	PF00668	Condensation domain	58	506
+ARIC|g49714.t1	1650	Pfam	PF00501	AMP-binding enzyme	555	955
+ARIC|g49714.t1	1650	Pfam	PF13193	AMP-binding enzyme C-terminal domain	964	1031
+ARIC|g49714.t1	1650	Pfam	PF00550	Phosphopantetheine attachment site	1064	1124
+ARIC|g49714.t1	1650	Pfam	PF00668	Condensation domain	1154	1601
+ARIC|g49874.t1	2634	Pfam	PF00668	Condensation domain	1	204
+ARIC|g49874.t1	2634	Pfam	PF00501	AMP-binding enzyme	381	780
+ARIC|g49874.t1	2634	Pfam	PF00550	Phosphopantetheine attachment site	893	957
+ARIC|g49874.t1	2634	Pfam	PF00668	Condensation domain	1021	1178
+ARIC|g49874.t1	2634	Pfam	PF00668	Condensation domain	1179	1341
+ARIC|g49874.t1	2634	Pfam	PF00668	Condensation domain	1378	1820
+ARIC|g49874.t1	2634	Pfam	PF00668	Condensation domain	1824	2019
+ARIC|g49874.t1	2634	Pfam	PF00501	AMP-binding enzyme	2056	2158
+ARIC|g49874.t1	2634	Pfam	PF00501	AMP-binding enzyme	2192	2438
+ARIC|g49874.t1	2634	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2447	2515
+ARIC|g49874.t1	2634	Pfam	PF00550	Phosphopantetheine attachment site	2547	2609
+ARIC|g49937.t1	3359	Pfam	PF00668	Condensation domain	12	262
+ARIC|g49937.t1	3359	Pfam	PF00668	Condensation domain	300	611
+ARIC|g49937.t1	3359	Pfam	PF00501	AMP-binding enzyme	656	1076
+ARIC|g49937.t1	3359	Pfam	PF00550	Phosphopantetheine attachment site	1185	1250
+ARIC|g49937.t1	3359	Pfam	PF00668	Condensation domain	1298	1741
+ARIC|g49937.t1	3359	Pfam	PF00668	Condensation domain	1784	2217
+ARIC|g49937.t1	3359	Pfam	PF00501	AMP-binding enzyme	2265	2666
+ARIC|g49937.t1	3359	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2686	2741
+ARIC|g49937.t1	3359	Pfam	PF00668	Condensation domain	2865	3314
+ARIC|g51137.t1	1037	Pfam	PF00501	AMP-binding enzyme	1	199
+ARIC|g51137.t1	1037	Pfam	PF00550	Phosphopantetheine attachment site	303	364
+ARIC|g51137.t1	1037	Pfam	PF00668	Condensation domain	406	744
+ARIC|g51137.t1	1037	Pfam	PF00501	AMP-binding enzyme	794	1032
+ARIC|g51138.t1	802	Pfam	PF00668	Condensation domain	1	152
+ARIC|g51138.t1	802	Pfam	PF00501	AMP-binding enzyme	196	599
+ARIC|g51213.t1	1969	Pfam	PF00668	Condensation domain	7	254
+ARIC|g51213.t1	1969	Pfam	PF00501	AMP-binding enzyme	299	700
+ARIC|g51213.t1	1969	Pfam	PF13193	AMP-binding enzyme C-terminal domain	721	776
+ARIC|g51213.t1	1969	Pfam	PF00550	Phosphopantetheine attachment site	810	875
+ARIC|g51213.t1	1969	Pfam	PF00668	Condensation domain	896	1344
+ARIC|g51213.t1	1969	Pfam	PF00668	Condensation domain	1388	1839
+ARIC|g51257.t1	1441	Pfam	PF00550	Phosphopantetheine attachment site	120	184
+ARIC|g51257.t1	1441	Pfam	PF00668	Condensation domain	265	454
+ARIC|g51257.t1	1441	Pfam	PF00501	AMP-binding enzyme	581	660
+ARIC|g51257.t1	1441	Pfam	PF00501	AMP-binding enzyme	668	803
+ARIC|g51257.t1	1441	Pfam	PF00668	Condensation domain	866	1028
+ARIC|g51257.t1	1441	Pfam	PF00501	AMP-binding enzyme	1165	1435
+ARIC|g51304.t1	1255	Pfam	PF00501	AMP-binding enzyme	5	235
+ARIC|g51304.t1	1255	Pfam	PF13193	AMP-binding enzyme C-terminal domain	248	312
+ARIC|g51304.t1	1255	Pfam	PF00550	Phosphopantetheine attachment site	349	413
+ARIC|g51304.t1	1255	Pfam	PF00668	Condensation domain	438	785
+ARIC|g51304.t1	1255	Pfam	PF00501	AMP-binding enzyme	850	1157
+ARIC|g51304.t1	1255	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1170	1234
+ARIC|g51530.t1	1369	Pfam	PF00501	AMP-binding enzyme	10	150
+ARIC|g51530.t1	1369	Pfam	PF00668	Condensation domain	158	436
+ARIC|g51530.t1	1369	Pfam	PF00501	AMP-binding enzyme	485	750
+ARIC|g51530.t1	1369	Pfam	PF00550	Phosphopantetheine attachment site	789	854
+ARIC|g51530.t1	1369	Pfam	PF00668	Condensation domain	1083	1346
+ARIC|g51804.t1	799	Pfam	PF00501	AMP-binding enzyme	3	88
+ARIC|g51804.t1	799	Pfam	PF13193	AMP-binding enzyme C-terminal domain	101	165
+ARIC|g51804.t1	799	Pfam	PF00550	Phosphopantetheine attachment site	202	266
+ARIC|g51804.t1	799	Pfam	PF00668	Condensation domain	291	635
+ARIC|g51804.t1	799	Pfam	PF00501	AMP-binding enzyme	632	793
+ARIC|g51868.t1	1679	Pfam	PF00668	Condensation domain	1	152
+ARIC|g51868.t1	1679	Pfam	PF00501	AMP-binding enzyme	196	599
+ARIC|g51868.t1	1679	Pfam	PF00501	AMP-binding enzyme	682	960
+ARIC|g51868.t1	1679	Pfam	PF00550	Phosphopantetheine attachment site	1064	1125
+ARIC|g51868.t1	1679	Pfam	PF00668	Condensation domain	1167	1592
+ARIC|g51958.t1	799	Pfam	PF00550	Phosphopantetheine attachment site	56	121
+ARIC|g51958.t1	799	Pfam	PF00501	AMP-binding enzyme	283	661
+ARIC|g51958.t1	799	Pfam	PF00550	Phosphopantetheine attachment site	714	777
+ARIC|g54050.t1	3880	Pfam	PF00668	Condensation domain	188	627
+ARIC|g54050.t1	3880	Pfam	PF00668	Condensation domain	671	1118
+ARIC|g54050.t1	3880	Pfam	PF00501	AMP-binding enzyme	1166	1570
+ARIC|g54050.t1	3880	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1579	1647
+ARIC|g54050.t1	3880	Pfam	PF00550	Phosphopantetheine attachment site	1681	1745
+ARIC|g54050.t1	3880	Pfam	PF00668	Condensation domain	1817	2221
+ARIC|g54050.t1	3880	Pfam	PF00501	AMP-binding enzyme	2267	2664
+ARIC|g54050.t1	3880	Pfam	PF00668	Condensation domain	3300	3741

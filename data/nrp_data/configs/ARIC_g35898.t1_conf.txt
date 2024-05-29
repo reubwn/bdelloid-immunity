@@ -1,0 +1,6 @@
+ARIC|g35898.t1	PF00668	Condensation domain	grey50	white	C
+ARIC|g35898.t1	PF00668	Condensation domain	grey50	white	C
+ARIC|g35898.t1	PF00501	AMP-binding enzyme	white	black	A
+ARIC|g35898.t1	PF13193	AMP-binding enzyme C-terminal domain	#D6EFBA	black	AC
+ARIC|g35898.t1	PF00550	Phosphopantetheine attachment site	black	white	PP
+ARIC|g35898.t1	PF00668	Condensation domain	grey50	white	C

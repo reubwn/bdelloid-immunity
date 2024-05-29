@@ -1,0 +1,423 @@
+AVAG|g1183.t1	3476	Pfam	PF00668	Condensation domain	1	176
+AVAG|g1183.t1	3476	Pfam	PF00501	AMP-binding enzyme	212	600
+AVAG|g1183.t1	3476	Pfam	PF00550	Phosphopantetheine attachment site	701	763
+AVAG|g1183.t1	3476	Pfam	PF00668	Condensation domain	787	1215
+AVAG|g1183.t1	3476	Pfam	PF00501	AMP-binding enzyme	1247	1644
+AVAG|g1183.t1	3476	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1653	1725
+AVAG|g1183.t1	3476	Pfam	PF00550	Phosphopantetheine attachment site	1771	1814
+AVAG|g1183.t1	3476	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	1841	2107
+AVAG|g1183.t1	3476	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	2117	2236
+AVAG|g1183.t1	3476	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	2250	2349
+AVAG|g1183.t1	3476	Pfam	PF00698	Acyl transferase domain	2385	2663
+AVAG|g1183.t1	3476	Pfam	PF00144	Beta-lactamase	2834	3002
+AVAG|g1183.t1	3476	Pfam	PF00550	Phosphopantetheine attachment site	3090	3135
+AVAG|g1183.t1	3476	Pfam	PF02668	Taurine catabolism dioxygenase TauD, TfdA family	3180	3473
+AVAG|g1184.t1	809	Pfam	PF00501	AMP-binding enzyme	28	413
+AVAG|g1184.t1	809	Pfam	PF13193	AMP-binding enzyme C-terminal domain	427	499
+AVAG|g1184.t1	809	Pfam	PF00550	Phosphopantetheine attachment site	531	594
+AVAG|g1184.t1	809	Pfam	PF00668	Condensation domain	613	808
+AVAG|g1185.t1	1181	Pfam	PF00501	AMP-binding enzyme	42	415
+AVAG|g1185.t1	1181	Pfam	PF13193	AMP-binding enzyme C-terminal domain	428	500
+AVAG|g1185.t1	1181	Pfam	PF00550	Phosphopantetheine attachment site	533	596
+AVAG|g1185.t1	1181	Pfam	PF00668	Condensation domain	615	943
+AVAG|g1185.t1	1181	Pfam	PF00550	Phosphopantetheine attachment site	1013	1075
+AVAG|g2856.t1	1416	Pfam	PF00668	Condensation domain	25	363
+AVAG|g2856.t1	1416	Pfam	PF00501	AMP-binding enzyme	393	797
+AVAG|g2856.t1	1416	Pfam	PF00668	Condensation domain	867	1284
+AVAG|g2856.t1	1416	Pfam	PF00550	Phosphopantetheine attachment site	1338	1397
+AVAG|g4225.t1	4995	Pfam	PF00501	AMP-binding enzyme	7	129
+AVAG|g4225.t1	4995	Pfam	PF00550	Phosphopantetheine attachment site	246	303
+AVAG|g4225.t1	4995	Pfam	PF00668	Condensation domain	334	797
+AVAG|g4225.t1	4995	Pfam	PF00501	AMP-binding enzyme	825	1239
+AVAG|g4225.t1	4995	Pfam	PF00550	Phosphopantetheine attachment site	1372	1422
+AVAG|g4225.t1	4995	Pfam	PF00132	Bacterial transferase hexapeptide (six repeats)	1607	1641
+AVAG|g4225.t1	4995	Pfam	PF00132	Bacterial transferase hexapeptide (six repeats)	1837	1869
+AVAG|g4225.t1	4995	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	2118	2374
+AVAG|g4225.t1	4995	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	2382	2502
+AVAG|g4225.t1	4995	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	2506	2608
+AVAG|g4225.t1	4995	Pfam	PF00698	Acyl transferase domain	2690	3021
+AVAG|g4225.t1	4995	Pfam	PF14765	Polyketide synthase dehydratase	3082	3407
+AVAG|g4225.t1	4995	Pfam	PF08242	Methyltransferase domain	3666	3780
+AVAG|g4225.t1	4995	Pfam	PF00107	Zinc-binding dehydrogenase	4202	4301
+AVAG|g4225.t1	4995	Pfam	PF08659	KR domain	4410	4601
+AVAG|g4225.t1	4995	Pfam	PF00550	Phosphopantetheine attachment site	4712	4777
+AVAG|g6186.t1	2329	Pfam	PF00668	Condensation domain	89	340
+AVAG|g6186.t1	2329	Pfam	PF00501	AMP-binding enzyme	391	795
+AVAG|g6186.t1	2329	Pfam	PF13193	AMP-binding enzyme C-terminal domain	816	871
+AVAG|g6186.t1	2329	Pfam	PF00550	Phosphopantetheine attachment site	904	964
+AVAG|g6186.t1	2329	Pfam	PF00668	Condensation domain	988	1257
+AVAG|g6186.t1	2329	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1321	1392
+AVAG|g6186.t1	2329	Pfam	PF00550	Phosphopantetheine attachment site	1425	1485
+AVAG|g6186.t1	2329	Pfam	PF00668	Condensation domain	1591	2019
+AVAG|g6186.t1	2329	Pfam	PF00501	AMP-binding enzyme	2065	2324
+AVAG|g6187.t1	1712	Pfam	PF00501	AMP-binding enzyme	16	144
+AVAG|g6187.t1	1712	Pfam	PF00550	Phosphopantetheine attachment site	258	319
+AVAG|g6187.t1	1712	Pfam	PF00668	Condensation domain	343	565
+AVAG|g6187.t1	1712	Pfam	PF00668	Condensation domain	597	900
+AVAG|g6187.t1	1712	Pfam	PF00501	AMP-binding enzyme	939	1292
+AVAG|g6187.t1	1712	Pfam	PF00550	Phosphopantetheine attachment site	1325	1386
+AVAG|g6187.t1	1712	Pfam	PF00668	Condensation domain	1410	1711
+AVAG|g6188.t1	599	Pfam	PF00501	AMP-binding enzyme	2	121
+AVAG|g6188.t1	599	Pfam	PF00550	Phosphopantetheine attachment site	234	295
+AVAG|g6188.t1	599	Pfam	PF00668	Condensation domain	320	452
+AVAG|g6188.t1	599	Pfam	PF00501	AMP-binding enzyme	467	564
+AVAG|g8030.t1	2770	Pfam	PF00550	Phosphopantetheine attachment site	2	48
+AVAG|g8030.t1	2770	Pfam	PF00668	Condensation domain	72	506
+AVAG|g8030.t1	2770	Pfam	PF00501	AMP-binding enzyme	534	932
+AVAG|g8030.t1	2770	Pfam	PF13193	AMP-binding enzyme C-terminal domain	941	1010
+AVAG|g8030.t1	2770	Pfam	PF00550	Phosphopantetheine attachment site	1059	1103
+AVAG|g8030.t1	2770	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	1131	1398
+AVAG|g8030.t1	2770	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	1407	1527
+AVAG|g8030.t1	2770	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	1541	1639
+AVAG|g8030.t1	2770	Pfam	PF00698	Acyl transferase domain	1677	1936
+AVAG|g8030.t1	2770	Pfam	PF00144	Beta-lactamase	2119	2270
+AVAG|g8030.t1	2770	Pfam	PF00550	Phosphopantetheine attachment site	2385	2430
+AVAG|g8030.t1	2770	Pfam	PF02668	Taurine catabolism dioxygenase TauD, TfdA family	2475	2767
+AVAG|g8031.t1	928	Pfam	PF00668	Condensation domain	3	271
+AVAG|g8031.t1	928	Pfam	PF00501	AMP-binding enzyme	284	673
+AVAG|g8031.t1	928	Pfam	PF00550	Phosphopantetheine attachment site	774	836
+AVAG|g8031.t1	928	Pfam	PF00668	Condensation domain	860	924
+AVAG|g18640.t1	1681	Pfam	PF00668	Condensation domain	1	304
+AVAG|g18640.t1	1681	Pfam	PF00501	AMP-binding enzyme	337	488
+AVAG|g18640.t1	1681	Pfam	PF00501	AMP-binding enzyme	489	555
+AVAG|g18640.t1	1681	Pfam	PF13193	AMP-binding enzyme C-terminal domain	564	632
+AVAG|g18640.t1	1681	Pfam	PF00501	AMP-binding enzyme	776	913
+AVAG|g18640.t1	1681	Pfam	PF13193	AMP-binding enzyme C-terminal domain	922	990
+AVAG|g18640.t1	1681	Pfam	PF00550	Phosphopantetheine attachment site	1091	1155
+AVAG|g18640.t1	1681	Pfam	PF00668	Condensation domain	1200	1645
+AVAG|g18641.t1	1540	Pfam	PF00668	Condensation domain	13	467
+AVAG|g18641.t1	1540	Pfam	PF00501	AMP-binding enzyme	505	779
+AVAG|g18641.t1	1540	Pfam	PF00501	AMP-binding enzyme	791	844
+AVAG|g18641.t1	1540	Pfam	PF13193	AMP-binding enzyme C-terminal domain	853	921
+AVAG|g18641.t1	1540	Pfam	PF00550	Phosphopantetheine attachment site	953	1012
+AVAG|g18641.t1	1540	Pfam	PF00668	Condensation domain	1044	1497
+AVAG|g18642.t1	1581	Pfam	PF00550	Phosphopantetheine attachment site	17	66
+AVAG|g18642.t1	1581	Pfam	PF00668	Condensation domain	107	556
+AVAG|g18642.t1	1581	Pfam	PF00668	Condensation domain	593	1047
+AVAG|g18642.t1	1581	Pfam	PF00501	AMP-binding enzyme	1117	1461
+AVAG|g18642.t1	1581	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1470	1538
+AVAG|g23567.t1	4322	Pfam	PF00668	Condensation domain	62	298
+AVAG|g23567.t1	4322	Pfam	PF00501	AMP-binding enzyme	466	871
+AVAG|g23567.t1	4322	Pfam	PF00550	Phosphopantetheine attachment site	986	1051
+AVAG|g23567.t1	4322	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	1079	1323
+AVAG|g23567.t1	4322	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	1332	1447
+AVAG|g23567.t1	4322	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	1450	1507
+AVAG|g23567.t1	4322	Pfam	PF08659	KR domain	1760	1937
+AVAG|g23567.t1	4322	Pfam	PF00550	Phosphopantetheine attachment site	2028	2091
+AVAG|g23567.t1	4322	Pfam	PF00975	Thioesterase domain	2126	2218
+AVAG|g23567.t1	4322	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	2337	2586
+AVAG|g23567.t1	4322	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	2594	2709
+AVAG|g23567.t1	4322	Pfam	PF14765	Polyketide synthase dehydratase	2799	2900
+AVAG|g23567.t1	4322	Pfam	PF08659	KR domain	2901	2955
+AVAG|g23567.t1	4322	Pfam	PF00550	Phosphopantetheine attachment site	3043	3106
+AVAG|g23567.t1	4322	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	3125	3372
+AVAG|g23567.t1	4322	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	3380	3496
+AVAG|g23567.t1	4322	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	3499	3565
+AVAG|g23567.t1	4322	Pfam	PF14765	Polyketide synthase dehydratase	3578	3859
+AVAG|g23567.t1	4322	Pfam	PF08659	KR domain	4091	4268
+AVAG|g33165.t1	2348	Pfam	PF00501	AMP-binding enzyme	26	415
+AVAG|g33165.t1	2348	Pfam	PF13193	AMP-binding enzyme C-terminal domain	428	500
+AVAG|g33165.t1	2348	Pfam	PF00550	Phosphopantetheine attachment site	533	596
+AVAG|g33165.t1	2348	Pfam	PF00668	Condensation domain	615	1038
+AVAG|g33165.t1	2348	Pfam	PF00501	AMP-binding enzyme	1074	1443
+AVAG|g33165.t1	2348	Pfam	PF00550	Phosphopantetheine attachment site	1511	1572
+AVAG|g33165.t1	2348	Pfam	PF00668	Condensation domain	1582	2011
+AVAG|g33165.t1	2348	Pfam	PF00501	AMP-binding enzyme	2042	2333
+AVAG|g37374.t1	4149	Pfam	PF00501	AMP-binding enzyme	42	279
+AVAG|g37374.t1	4149	Pfam	PF00501	AMP-binding enzyme	301	796
+AVAG|g37374.t1	4149	Pfam	PF13193	AMP-binding enzyme C-terminal domain	805	899
+AVAG|g37374.t1	4149	Pfam	PF00550	Phosphopantetheine attachment site	1127	1171
+AVAG|g37374.t1	4149	Pfam	PF00668	Condensation domain	1234	1650
+AVAG|g37374.t1	4149	Pfam	PF00501	AMP-binding enzyme	1880	2305
+AVAG|g37374.t1	4149	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	2614	2866
+AVAG|g37374.t1	4149	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	2875	2993
+AVAG|g37374.t1	4149	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	3001	3115
+AVAG|g37374.t1	4149	Pfam	PF00698	Acyl transferase domain	3179	3468
+AVAG|g37374.t1	4149	Pfam	PF00550	Phosphopantetheine attachment site	3727	3789
+AVAG|g37374.t1	4149	Pfam	PF00975	Thioesterase domain	3882	4140
+AVAG|g38642.t1	3205	Pfam	PF00668	Condensation domain	1	300
+AVAG|g38642.t1	3205	Pfam	PF00501	AMP-binding enzyme	344	495
+AVAG|g38642.t1	3205	Pfam	PF00501	AMP-binding enzyme	499	612
+AVAG|g38642.t1	3205	Pfam	PF13193	AMP-binding enzyme C-terminal domain	621	689
+AVAG|g38642.t1	3205	Pfam	PF00550	Phosphopantetheine attachment site	725	789
+AVAG|g38642.t1	3205	Pfam	PF00668	Condensation domain	835	1265
+AVAG|g38642.t1	3205	Pfam	PF00668	Condensation domain	1309	1769
+AVAG|g38642.t1	3205	Pfam	PF00501	AMP-binding enzyme	2009	2147
+AVAG|g38642.t1	3205	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2156	2224
+AVAG|g38642.t1	3205	Pfam	PF00550	Phosphopantetheine attachment site	2255	2317
+AVAG|g38862.t1	2606	Pfam	PF00501	AMP-binding enzyme	2	403
+AVAG|g38862.t1	2606	Pfam	PF13193	AMP-binding enzyme C-terminal domain	425	486
+AVAG|g38862.t1	2606	Pfam	PF00668	Condensation domain	601	1043
+AVAG|g38862.t1	2606	Pfam	PF00501	AMP-binding enzyme	1068	1462
+AVAG|g38862.t1	2606	Pfam	PF00550	Phosphopantetheine attachment site	1568	1629
+AVAG|g38862.t1	2606	Pfam	PF00668	Condensation domain	1657	2112
+AVAG|g38862.t1	2606	Pfam	PF00550	Phosphopantetheine attachment site	2133	2197
+AVAG|g38862.t1	2606	Pfam	PF01494	FAD binding domain	2205	2555
+AVAG|g38887.t1	815	Pfam	PF00501	AMP-binding enzyme	4	232
+AVAG|g38887.t1	815	Pfam	PF00550	Phosphopantetheine attachment site	346	403
+AVAG|g38887.t1	815	Pfam	PF00668	Condensation domain	430	783
+AVAG|g39354.t1	2729	Pfam	PF00668	Condensation domain	112	543
+AVAG|g39354.t1	2729	Pfam	PF00501	AMP-binding enzyme	570	721
+AVAG|g39354.t1	2729	Pfam	PF00501	AMP-binding enzyme	724	939
+AVAG|g39354.t1	2729	Pfam	PF00501	AMP-binding enzyme	999	1408
+AVAG|g39354.t1	2729	Pfam	PF00550	Phosphopantetheine attachment site	1522	1584
+AVAG|g39354.t1	2729	Pfam	PF00668	Condensation domain	1622	2070
+AVAG|g39354.t1	2729	Pfam	PF00501	AMP-binding enzyme	2109	2518
+AVAG|g39354.t1	2729	Pfam	PF00550	Phosphopantetheine attachment site	2632	2694
+AVAG|g39356.t1	2377	Pfam	PF00668	Condensation domain	3	259
+AVAG|g39356.t1	2377	Pfam	PF00501	AMP-binding enzyme	286	691
+AVAG|g39356.t1	2377	Pfam	PF00550	Phosphopantetheine attachment site	805	867
+AVAG|g39356.t1	2377	Pfam	PF00668	Condensation domain	888	1325
+AVAG|g39356.t1	2377	Pfam	PF00501	AMP-binding enzyme	1358	1552
+AVAG|g39356.t1	2377	Pfam	PF00550	Phosphopantetheine attachment site	1734	1795
+AVAG|g39356.t1	2377	Pfam	PF00668	Condensation domain	1844	2259
+AVAG|g39356.t1	2377	Pfam	PF00550	Phosphopantetheine attachment site	2309	2373
+AVAG|g40644.t1	837	Pfam	PF00668	Condensation domain	127	373
+AVAG|g40644.t1	837	Pfam	PF00501	AMP-binding enzyme	496	632
+AVAG|g40644.t1	837	Pfam	PF13193	AMP-binding enzyme C-terminal domain	641	709
+AVAG|g40644.t1	837	Pfam	PF00550	Phosphopantetheine attachment site	745	809
+AVAG|g41411.t1	1851	Pfam	PF00550	Phosphopantetheine attachment site	22	81
+AVAG|g41411.t1	1851	Pfam	PF00668	Condensation domain	145	537
+AVAG|g41411.t1	1851	Pfam	PF00501	AMP-binding enzyme	583	977
+AVAG|g41411.t1	1851	Pfam	PF00550	Phosphopantetheine attachment site	1495	1556
+AVAG|g41411.t1	1851	Pfam	PF00668	Condensation domain	1655	1821
+AVAG|g42807.t1	4293	Pfam	PF00501	AMP-binding enzyme	27	413
+AVAG|g42807.t1	4293	Pfam	PF13193	AMP-binding enzyme C-terminal domain	427	499
+AVAG|g42807.t1	4293	Pfam	PF00550	Phosphopantetheine attachment site	531	594
+AVAG|g42807.t1	4293	Pfam	PF00668	Condensation domain	613	1051
+AVAG|g42807.t1	4293	Pfam	PF00501	AMP-binding enzyme	1064	1437
+AVAG|g42807.t1	4293	Pfam	PF00550	Phosphopantetheine attachment site	1508	1570
+AVAG|g42807.t1	4293	Pfam	PF00668	Condensation domain	1594	2028
+AVAG|g42807.t1	4293	Pfam	PF00501	AMP-binding enzyme	2058	2454
+AVAG|g42807.t1	4293	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2463	2531
+AVAG|g42807.t1	4293	Pfam	PF00550	Phosphopantetheine attachment site	2581	2625
+AVAG|g42807.t1	4293	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	2653	2920
+AVAG|g42807.t1	4293	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	2929	3049
+AVAG|g42807.t1	4293	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	3063	3161
+AVAG|g42807.t1	4293	Pfam	PF00698	Acyl transferase domain	3199	3458
+AVAG|g42807.t1	4293	Pfam	PF00144	Beta-lactamase	3647	3793
+AVAG|g42807.t1	4293	Pfam	PF00550	Phosphopantetheine attachment site	3906	3953
+AVAG|g42807.t1	4293	Pfam	PF02668	Taurine catabolism dioxygenase TauD, TfdA family	3999	4290
+AVAG|g43082.t1	5391	Pfam	PF00501	AMP-binding enzyme	263	665
+AVAG|g43082.t1	5391	Pfam	PF00501	AMP-binding enzyme	703	780
+AVAG|g43082.t1	5391	Pfam	PF00668	Condensation domain	978	1434
+AVAG|g43082.t1	5391	Pfam	PF00501	AMP-binding enzyme	1835	2044
+AVAG|g43082.t1	5391	Pfam	PF00501	AMP-binding enzyme	2046	2379
+AVAG|g43082.t1	5391	Pfam	PF00668	Condensation domain	2577	3033
+AVAG|g43082.t1	5391	Pfam	PF00501	AMP-binding enzyme	3450	3852
+AVAG|g43082.t1	5391	Pfam	PF13193	AMP-binding enzyme C-terminal domain	3861	3937
+AVAG|g43082.t1	5391	Pfam	PF02446	4-alpha-glucanotransferase	4863	5363
+AVAG|g44090.t1	2950	Pfam	PF00668	Condensation domain	7	450
+AVAG|g44090.t1	2950	Pfam	PF00668	Condensation domain	493	743
+AVAG|g44090.t1	2950	Pfam	PF00501	AMP-binding enzyme	774	972
+AVAG|g44090.t1	2950	Pfam	PF00501	AMP-binding enzyme	1000	1113
+AVAG|g44090.t1	2950	Pfam	PF00550	Phosphopantetheine attachment site	1228	1291
+AVAG|g44090.t1	2950	Pfam	PF00501	AMP-binding enzyme	1401	1489
+AVAG|g44090.t1	2950	Pfam	PF00550	Phosphopantetheine attachment site	1601	1664
+AVAG|g44090.t1	2950	Pfam	PF00668	Condensation domain	1691	2097
+AVAG|g44090.t1	2950	Pfam	PF00668	Condensation domain	2111	2435
+AVAG|g44090.t1	2950	Pfam	PF00501	AMP-binding enzyme	2497	2833
+AVAG|g44090.t1	2950	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2851	2909
+AVAG|g44091.t1	4257	Pfam	PF00668	Condensation domain	19	342
+AVAG|g44091.t1	4257	Pfam	PF00668	Condensation domain	491	938
+AVAG|g44091.t1	4257	Pfam	PF00501	AMP-binding enzyme	1059	1204
+AVAG|g44091.t1	4257	Pfam	PF00668	Condensation domain	1408	1817
+AVAG|g44091.t1	4257	Pfam	PF00501	AMP-binding enzyme	1862	2257
+AVAG|g44091.t1	4257	Pfam	PF00668	Condensation domain	2897	3298
+AVAG|g44091.t1	4257	Pfam	PF00668	Condensation domain	3312	3762
+AVAG|g44091.t1	4257	Pfam	PF00501	AMP-binding enzyme	3783	4163
+AVAG|g44933.t1	1175	Pfam	PF00501	AMP-binding enzyme	132	534
+AVAG|g44933.t1	1175	Pfam	PF00550	Phosphopantetheine attachment site	640	702
+AVAG|g46324.t1	1939	Pfam	PF00668	Condensation domain	4	462
+AVAG|g46324.t1	1939	Pfam	PF00501	AMP-binding enzyme	501	901
+AVAG|g46324.t1	1939	Pfam	PF13193	AMP-binding enzyme C-terminal domain	910	978
+AVAG|g46324.t1	1939	Pfam	PF00550	Phosphopantetheine attachment site	1014	1078
+AVAG|g46324.t1	1939	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1149	1217
+AVAG|g46324.t1	1939	Pfam	PF00550	Phosphopantetheine attachment site	1247	1311
+AVAG|g48151.t1	7161	Pfam	PF00109	Beta-ketoacyl synthase, N-terminal domain	9	266
+AVAG|g48151.t1	7161	Pfam	PF02801	Beta-ketoacyl synthase, C-terminal domain	274	392
+AVAG|g48151.t1	7161	Pfam	PF16197	Ketoacyl-synthetase C-terminal extension	396	500
+AVAG|g48151.t1	7161	Pfam	PF00698	Acyl transferase domain	569	904
+AVAG|g48151.t1	7161	Pfam	PF14765	Polyketide synthase dehydratase	962	1265
+AVAG|g48151.t1	7161	Pfam	PF00107	Zinc-binding dehydrogenase	2092	2207
+AVAG|g48151.t1	7161	Pfam	PF08659	KR domain	2299	2490
+AVAG|g48151.t1	7161	Pfam	PF00550	Phosphopantetheine attachment site	2603	2663
+AVAG|g48151.t1	7161	Pfam	PF00668	Condensation domain	2867	3320
+AVAG|g48151.t1	7161	Pfam	PF00668	Condensation domain	3357	3805
+AVAG|g48151.t1	7161	Pfam	PF00501	AMP-binding enzyme	3865	4255
+AVAG|g48151.t1	7161	Pfam	PF13193	AMP-binding enzyme C-terminal domain	4271	4328
+AVAG|g48151.t1	7161	Pfam	PF00550	Phosphopantetheine attachment site	4359	4423
+AVAG|g48151.t1	7161	Pfam	PF00668	Condensation domain	4477	4890
+AVAG|g48151.t1	7161	Pfam	PF00501	AMP-binding enzyme	4938	5345
+AVAG|g48151.t1	7161	Pfam	PF13193	AMP-binding enzyme C-terminal domain	5354	5423
+AVAG|g48151.t1	7161	Pfam	PF00668	Condensation domain	5555	5987
+AVAG|g48151.t1	7161	Pfam	PF00501	AMP-binding enzyme	5981	6308
+AVAG|g48151.t1	7161	Pfam	PF00550	Phosphopantetheine attachment site	6417	6478
+AVAG|g48794.t1	2464	Pfam	PF00501	AMP-binding enzyme	40	442
+AVAG|g48794.t1	2464	Pfam	PF00668	Condensation domain	676	1070
+AVAG|g48794.t1	2464	Pfam	PF00501	AMP-binding enzyme	1115	1355
+AVAG|g48794.t1	2464	Pfam	PF00501	AMP-binding enzyme	1361	1589
+AVAG|g48794.t1	2464	Pfam	PF00668	Condensation domain	2228	2445
+AVAG|g49180.t1	2469	Pfam	PF00668	Condensation domain	38	496
+AVAG|g49180.t1	2469	Pfam	PF00668	Condensation domain	540	765
+AVAG|g49180.t1	2469	Pfam	PF00501	AMP-binding enzyme	766	1020
+AVAG|g49180.t1	2469	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1028	1097
+AVAG|g49180.t1	2469	Pfam	PF00550	Phosphopantetheine attachment site	1133	1196
+AVAG|g49180.t1	2469	Pfam	PF00668	Condensation domain	1221	1669
+AVAG|g49180.t1	2469	Pfam	PF00501	AMP-binding enzyme	1740	1995
+AVAG|g49180.t1	2469	Pfam	PF13193	AMP-binding enzyme C-terminal domain	2003	2072
+AVAG|g49180.t1	2469	Pfam	PF00550	Phosphopantetheine attachment site	2104	2166
+AVAG|g50310.t1	2130	Pfam	PF00668	Condensation domain	26	402
+AVAG|g50310.t1	2130	Pfam	PF00668	Condensation domain	472	790
+AVAG|g50310.t1	2130	Pfam	PF00668	Condensation domain	792	950
+AVAG|g50310.t1	2130	Pfam	PF00501	AMP-binding enzyme	1140	1205
+AVAG|g50310.t1	2130	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1214	1282
+AVAG|g50310.t1	2130	Pfam	PF00501	AMP-binding enzyme	1297	1411
+AVAG|g50310.t1	2130	Pfam	PF00550	Phosphopantetheine attachment site	1509	1569
+AVAG|g50310.t1	2130	Pfam	PF00668	Condensation domain	1623	2052
+AVAG|g50457.t1	811	Pfam	PF00668	Condensation domain	18	387
+AVAG|g50457.t1	811	Pfam	PF00501	AMP-binding enzyme	489	608
+AVAG|g50457.t1	811	Pfam	PF13193	AMP-binding enzyme C-terminal domain	616	685
+AVAG|g50457.t1	811	Pfam	PF00550	Phosphopantetheine attachment site	717	784
+AVAG|g51262.t1	2604	Pfam	PF00501	AMP-binding enzyme	2	403
+AVAG|g51262.t1	2604	Pfam	PF13193	AMP-binding enzyme C-terminal domain	425	486
+AVAG|g51262.t1	2604	Pfam	PF00668	Condensation domain	600	1041
+AVAG|g51262.t1	2604	Pfam	PF00501	AMP-binding enzyme	1066	1460
+AVAG|g51262.t1	2604	Pfam	PF00668	Condensation domain	1655	2112
+AVAG|g51262.t1	2604	Pfam	PF00550	Phosphopantetheine attachment site	2131	2195
+AVAG|g51262.t1	2604	Pfam	PF01494	FAD binding domain	2204	2553
+AVAG|g51867.t1	858	Pfam	PF00501	AMP-binding enzyme	6	104
+AVAG|g51867.t1	858	Pfam	PF00501	AMP-binding enzyme	116	169
+AVAG|g51867.t1	858	Pfam	PF13193	AMP-binding enzyme C-terminal domain	178	246
+AVAG|g51867.t1	858	Pfam	PF00550	Phosphopantetheine attachment site	278	337
+AVAG|g51867.t1	858	Pfam	PF00668	Condensation domain	367	815
+AVAG|g51868.t1	678	Pfam	PF00668	Condensation domain	5	268
+AVAG|g51868.t1	678	Pfam	PF00501	AMP-binding enzyme	299	450
+AVAG|g51868.t1	678	Pfam	PF00501	AMP-binding enzyme	451	517
+AVAG|g51868.t1	678	Pfam	PF13193	AMP-binding enzyme C-terminal domain	526	594
+AVAG|g51868.t1	678	Pfam	PF00550	Phosphopantetheine attachment site	630	675
+AVAG|g52308.t1	767	Pfam	PF00501	AMP-binding enzyme	4	75
+AVAG|g52308.t1	767	Pfam	PF13193	AMP-binding enzyme C-terminal domain	84	152
+AVAG|g52308.t1	767	Pfam	PF00550	Phosphopantetheine attachment site	185	247
+AVAG|g52308.t1	767	Pfam	PF00668	Condensation domain	296	715
+AVAG|g52309.t1	882	Pfam	PF00501	AMP-binding enzyme	188	587
+AVAG|g52309.t1	882	Pfam	PF00550	Phosphopantetheine attachment site	697	757
+AVAG|g52311.t1	1313	Pfam	PF00668	Condensation domain	7	133
+AVAG|g52311.t1	1313	Pfam	PF00501	AMP-binding enzyme	129	266
+AVAG|g52311.t1	1313	Pfam	PF00501	AMP-binding enzyme	268	352
+AVAG|g52311.t1	1313	Pfam	PF13193	AMP-binding enzyme C-terminal domain	361	429
+AVAG|g52311.t1	1313	Pfam	PF00550	Phosphopantetheine attachment site	459	521
+AVAG|g52311.t1	1313	Pfam	PF08241	Methyltransferase domain	1138	1236
+AVAG|g52643.t1	1182	Pfam	PF00501	AMP-binding enzyme	33	416
+AVAG|g52643.t1	1182	Pfam	PF13193	AMP-binding enzyme C-terminal domain	425	493
+AVAG|g52643.t1	1182	Pfam	PF00550	Phosphopantetheine attachment site	535	587
+AVAG|g52643.t1	1182	Pfam	PF00668	Condensation domain	765	1039
+AVAG|g52850.t1	2245	Pfam	PF00668	Condensation domain	100	400
+AVAG|g52850.t1	2245	Pfam	PF00668	Condensation domain	577	1019
+AVAG|g52850.t1	2245	Pfam	PF00668	Condensation domain	1042	1313
+AVAG|g52850.t1	2245	Pfam	PF00501	AMP-binding enzyme	1358	1535
+AVAG|g52850.t1	2245	Pfam	PF00501	AMP-binding enzyme	1543	1611
+AVAG|g52850.t1	2245	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1620	1688
+AVAG|g52850.t1	2245	Pfam	PF00550	Phosphopantetheine attachment site	1724	1782
+AVAG|g52850.t1	2245	Pfam	PF00668	Condensation domain	1960	2235
+AVAG|g52852.t1	1276	Pfam	PF00668	Condensation domain	14	466
+AVAG|g52852.t1	1276	Pfam	PF00501	AMP-binding enzyme	511	726
+AVAG|g52852.t1	1276	Pfam	PF00501	AMP-binding enzyme	739	860
+AVAG|g52852.t1	1276	Pfam	PF13193	AMP-binding enzyme C-terminal domain	869	937
+AVAG|g52852.t1	1276	Pfam	PF00550	Phosphopantetheine attachment site	969	1018
+AVAG|g52852.t1	1276	Pfam	PF00668	Condensation domain	1059	1254
+AVAG|g52905.t1	2166	Pfam	PF00501	AMP-binding enzyme	22	273
+AVAG|g52905.t1	2166	Pfam	PF00501	AMP-binding enzyme	351	404
+AVAG|g52905.t1	2166	Pfam	PF00550	Phosphopantetheine attachment site	513	567
+AVAG|g52905.t1	2166	Pfam	PF00668	Condensation domain	605	1045
+AVAG|g52905.t1	2166	Pfam	PF00501	AMP-binding enzyme	1215	1508
+AVAG|g52905.t1	2166	Pfam	PF00550	Phosphopantetheine attachment site	1605	1667
+AVAG|g53486.t1	3018	Pfam	PF00668	Condensation domain	125	562
+AVAG|g53486.t1	3018	Pfam	PF00668	Condensation domain	620	744
+AVAG|g53486.t1	3018	Pfam	PF00501	AMP-binding enzyme	751	1111
+AVAG|g53486.t1	3018	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1129	1186
+AVAG|g53486.t1	3018	Pfam	PF00668	Condensation domain	1367	1780
+AVAG|g53486.t1	3018	Pfam	PF00501	AMP-binding enzyme	1805	2204
+AVAG|g53486.t1	3018	Pfam	PF00668	Condensation domain	2846	3014
+AVAG|g53785.t1	3893	Pfam	PF00668	Condensation domain	30	503
+AVAG|g53785.t1	3893	Pfam	PF00501	AMP-binding enzyme	532	946
+AVAG|g53785.t1	3893	Pfam	PF00550	Phosphopantetheine attachment site	1062	1120
+AVAG|g53785.t1	3893	Pfam	PF00668	Condensation domain	1150	1584
+AVAG|g53785.t1	3893	Pfam	PF00501	AMP-binding enzyme	1627	2032
+AVAG|g53785.t1	3893	Pfam	PF00550	Phosphopantetheine attachment site	2164	2213
+AVAG|g53785.t1	3893	Pfam	PF00132	Bacterial transferase hexapeptide (six repeats)	2628	2660
+AVAG|g53785.t1	3893	Pfam	PF00550	Phosphopantetheine attachment site	2897	2955
+AVAG|g53785.t1	3893	Pfam	PF00668	Condensation domain	2985	3451
+AVAG|g53785.t1	3893	Pfam	PF00501	AMP-binding enzyme	3480	3890
+AVAG|g54378.t1	1918	Pfam	PF00501	AMP-binding enzyme	62	456
+AVAG|g54378.t1	1918	Pfam	PF00668	Condensation domain	1071	1251
+AVAG|g54378.t1	1918	Pfam	PF00501	AMP-binding enzyme	1257	1657
+AVAG|g54378.t1	1918	Pfam	PF00550	Phosphopantetheine attachment site	1765	1831
+AVAG|g54567.t1	785	Pfam	PF00501	AMP-binding enzyme	6	90
+AVAG|g54567.t1	785	Pfam	PF13193	AMP-binding enzyme C-terminal domain	99	167
+AVAG|g54567.t1	785	Pfam	PF00550	Phosphopantetheine attachment site	199	245
+AVAG|g54567.t1	785	Pfam	PF00668	Condensation domain	290	735
+AVAG|g54602.t1	3433	Pfam	PF00501	AMP-binding enzyme	53	455
+AVAG|g54602.t1	3433	Pfam	PF00668	Condensation domain	631	980
+AVAG|g54602.t1	3433	Pfam	PF00501	AMP-binding enzyme	1026	1420
+AVAG|g54602.t1	3433	Pfam	PF00668	Condensation domain	2036	2404
+AVAG|g54602.t1	3433	Pfam	PF00501	AMP-binding enzyme	2426	2826
+AVAG|g54602.t1	3433	Pfam	PF00550	Phosphopantetheine attachment site	2932	2994
+AVAG|g54690.t1	2423	Pfam	PF00668	Condensation domain	13	472
+AVAG|g54690.t1	2423	Pfam	PF00501	AMP-binding enzyme	514	622
+AVAG|g54690.t1	2423	Pfam	PF00501	AMP-binding enzyme	633	768
+AVAG|g54690.t1	2423	Pfam	PF13193	AMP-binding enzyme C-terminal domain	777	845
+AVAG|g54690.t1	2423	Pfam	PF00550	Phosphopantetheine attachment site	881	940
+AVAG|g54690.t1	2423	Pfam	PF00668	Condensation domain	984	1419
+AVAG|g54690.t1	2423	Pfam	PF00501	AMP-binding enzyme	1553	1718
+AVAG|g54690.t1	2423	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1727	1795
+AVAG|g54690.t1	2423	Pfam	PF00550	Phosphopantetheine attachment site	1831	1895
+AVAG|g54690.t1	2423	Pfam	PF00668	Condensation domain	1920	2293
+AVAG|g55121.t1	2057	Pfam	PF00668	Condensation domain	6	459
+AVAG|g55121.t1	2057	Pfam	PF00501	AMP-binding enzyme	511	906
+AVAG|g55121.t1	2057	Pfam	PF13193	AMP-binding enzyme C-terminal domain	915	983
+AVAG|g55121.t1	2057	Pfam	PF00550	Phosphopantetheine attachment site	1019	1079
+AVAG|g55121.t1	2057	Pfam	PF00668	Condensation domain	1135	1564
+AVAG|g55121.t1	2057	Pfam	PF00668	Condensation domain	1791	1947
+AVAG|g55383.t1	1309	Pfam	PF00668	Condensation domain	76	308
+AVAG|g55383.t1	1309	Pfam	PF00501	AMP-binding enzyme	334	598
+AVAG|g55383.t1	1309	Pfam	PF00501	AMP-binding enzyme	601	690
+AVAG|g55383.t1	1309	Pfam	PF00668	Condensation domain	760	1176
+AVAG|g55383.t1	1309	Pfam	PF00550	Phosphopantetheine attachment site	1231	1289
+AVAG|g55510.t1	1584	Pfam	PF00668	Condensation domain	66	417
+AVAG|g55510.t1	1584	Pfam	PF00501	AMP-binding enzyme	461	861
+AVAG|g55510.t1	1584	Pfam	PF13193	AMP-binding enzyme C-terminal domain	871	937
+AVAG|g55510.t1	1584	Pfam	PF00550	Phosphopantetheine attachment site	967	1031
+AVAG|g55787.t1	1829	Pfam	PF00501	AMP-binding enzyme	174	365
+AVAG|g55787.t1	1829	Pfam	PF00501	AMP-binding enzyme	367	451
+AVAG|g55787.t1	1829	Pfam	PF13193	AMP-binding enzyme C-terminal domain	460	528
+AVAG|g55787.t1	1829	Pfam	PF00550	Phosphopantetheine attachment site	564	629
+AVAG|g55787.t1	1829	Pfam	PF00668	Condensation domain	674	1110
+AVAG|g55787.t1	1829	Pfam	PF00668	Condensation domain	1149	1609
+AVAG|g55787.t1	1829	Pfam	PF00501	AMP-binding enzyme	1652	1800
+AVAG|g55960.t1	1594	Pfam	PF00550	Phosphopantetheine attachment site	31	95
+AVAG|g55960.t1	1594	Pfam	PF00668	Condensation domain	143	585
+AVAG|g55960.t1	1594	Pfam	PF00668	Condensation domain	617	1051
+AVAG|g55960.t1	1594	Pfam	PF00501	AMP-binding enzyme	1049	1394
+AVAG|g55960.t1	1594	Pfam	PF13193	AMP-binding enzyme C-terminal domain	1403	1471
+AVAG|g55960.t1	1594	Pfam	PF00550	Phosphopantetheine attachment site	1507	1571
+AVAG|g56082.t1	1581	Pfam	PF00501	AMP-binding enzyme	37	266
+AVAG|g56082.t1	1581	Pfam	PF00501	AMP-binding enzyme	267	407
+AVAG|g56082.t1	1581	Pfam	PF00668	Condensation domain	496	931
+AVAG|g56082.t1	1581	Pfam	PF00501	AMP-binding enzyme	974	1378
+AVAG|g56082.t1	1581	Pfam	PF00550	Phosphopantetheine attachment site	1471	1528
+AVAG|g56482.t1	1038	Pfam	PF00501	AMP-binding enzyme	41	443
+AVAG|g56482.t1	1038	Pfam	PF13193	AMP-binding enzyme C-terminal domain	451	518
+AVAG|g56482.t1	1038	Pfam	PF00550	Phosphopantetheine attachment site	550	611
+AVAG|g56482.t1	1038	Pfam	PF00668	Condensation domain	640	1036
+AVAG|g56693.t1	602	Pfam	PF00501	AMP-binding enzyme	15	122
+AVAG|g56693.t1	602	Pfam	PF00550	Phosphopantetheine attachment site	236	297
+AVAG|g56693.t1	602	Pfam	PF00668	Condensation domain	321	602
+AVAG|g56801.t1	714	Pfam	PF00501	AMP-binding enzyme	8	149
+AVAG|g56801.t1	714	Pfam	PF13193	AMP-binding enzyme C-terminal domain	158	227
+AVAG|g56801.t1	714	Pfam	PF00550	Phosphopantetheine attachment site	263	327
+AVAG|g56801.t1	714	Pfam	PF00668	Condensation domain	374	713
+AVAG|g56862.t1	665	Pfam	PF00501	AMP-binding enzyme	1	57
+AVAG|g56862.t1	665	Pfam	PF13193	AMP-binding enzyme C-terminal domain	65	133
+AVAG|g56862.t1	665	Pfam	PF00550	Phosphopantetheine attachment site	169	233
+AVAG|g56862.t1	665	Pfam	PF00668	Condensation domain	278	642
