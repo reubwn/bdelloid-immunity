@@ -9,6 +9,6 @@ See the [wiki](https://github.com/reubwn/bdelloid-immunity/wiki) for a full walk
 
 ***
 
-![Bdelloid rotifers and their pathogens](https://github.com/reubwn/bdelloid-immunity/master/images/fig1.png)
+![Bdelloid rotifers and their pathogens](https://github.com/reubwn/bdelloid-immunity/blob/master/images/fig1a.png)
 
 _Active A. ricciae; active and contracted A. vaga; composite of three A. ricciae corpses with fully developed R. globospora infections, differentiating into irregular resting spores and long conidiophores bearing spherical infectious conidia._
