@@ -5,6 +5,7 @@ library(lmerTest)
 
 ## read in data
 all_data.df<-read.table("data/telo_data/all_data.prop.txt", header=T, stringsAsFactors=T)
+all_data.df$SPECIES <- factor(all_data.df$SPECIES, levels=c("Av","Ar"))
 str(all_data.df)
 
 #######
@@ -131,3 +132,71 @@ coef(summary(mod.TEs))
 ## putative NRP/PKS genes have significantly higher density of TEs 
 ## in flanking regions relative to BUSCO genes
 ##
+
+## PLOTS
+
+## genes boxplot
+plot.genes<-~{
+  par(mar=c(2,3,1,0), oma=c(1,1,2,1))
+  par(tcl=-0.25)
+  par(mgp=c(2,0.6,0))
+  par(bty="n")
+  
+  ## plot area
+  boxplot(PROP*100 ~ SPECIES*TYPE, data=genes.df,
+          at=1:4, axes=F, xlab="", ylab="Coverage in flanks (%)",
+          col=NA, border=NA); grid(nx=NA, ny=NULL)
+  ## subtitle
+  mtext("Gene density", 3, line=1, cex=11/12, font=2, adj=0)
+  ## axes
+  axis(1, at=2.5, labels=F, lwd=2)
+  mtext(c("BUSCO","NRP/PKS"), side=1, line=1, at=c(1.5,3.5))
+  axis(2, lwd=2)
+  
+  ## plot the boxes
+  boxplot(PROP*100 ~ SPECIES*TYPE, data=genes.df,
+          at=1:4, xaxt="n", yaxt="n", outline=F,
+          col="grey95", boxlty=0, whisklty=1, staplelty=0, medcol="grey50", whiskcol="grey", add=T)
+  stripchart(PROP*100 ~ SPECIES*TYPE, data=genes.df,
+             at=1:4, method="jitter", jitter=0.2, vertical=T,
+             pch=16, col=c("#F44B1950","#01AAEA50"), add=T)
+  
+  ## legend
+  legend(3,105, xjust=0.5, yjust=1, c(expression(italic("A. vaga")),expression(italic("A. ricciae"))),
+         pch=15, col=c(Av.col,Ar.col), y.intersp=0.9, bg="grey95", box.col=NA, cex=9/12, pt.cex=1)
+  
+  ## box
+  box(bty="l", lwd=2)
+}
+
+## TEs boxplot
+plot.TEs<-~{
+  par(mar=c(2,3,1,0), oma=c(1,1,2,1))
+  par(tcl=-0.25)
+  par(mgp=c(2,0.6,0))
+  par(bty="n")
+  
+  ## plot area
+  boxplot(PROP*100 ~ SPECIES*TYPE, TEs.df,
+          at=1:4, axes=F, xlab="", ylab="Coverage in flanks (%)",
+          col=NA, border=NA); grid(nx=NA, ny=NULL)
+  ## subtitle
+  mtext("TEs density", 3, line=1, cex=11/12, font=2, adj=0)
+  ## axes
+  axis(1, at=2.5, labels=F, lwd=2)
+  mtext(c("BUSCO","NRP/PKS"), side=1, line=1, at=c(1.5,3.5))
+  axis(2, lwd=2)
+  
+  ## plot the boxes
+  boxplot(PROP*100 ~ SPECIES*TYPE, data=TEs.df,
+          at=1:4, xaxt="n", yaxt="n", outline=F,
+          col="grey95", boxlty=0, whisklty=1, staplelty=0, medcol="grey50", whiskcol="grey", add=T)
+  stripchart(PROP*100 ~ SPECIES*TYPE, data=TEs.df,
+             at=1:4, method="jitter", jitter=0.2, vertical=T,
+             pch=16, col=c("#F44B1950","#01AAEA50"), add=T)
+  
+  ## box
+  box(bty="l", lwd=2)
+}
+
+plot_grid(plot.genes, plot.TEs, labels="auto")
