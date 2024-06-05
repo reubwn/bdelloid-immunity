@@ -16,6 +16,8 @@ telo.df <- subset(all_data.df, all_data.df$FEATURE=="telo")
 telo.df <- droplevels(telo.df)
 str(telo.df)
 
+table(telo.df$SPECIES, telo.df$TYPE)
+
 summary(telo.df$PROP) ## summary prop
 length(telo.df$PROP[telo.df$PROP==0]) ## how many zero values in total
 telo.df$TRANSFORMED <- log10(telo.df$PROP+0.001) ## add small constant to log transform all values
@@ -60,6 +62,8 @@ genes.df <- subset(all_data.df, all_data.df$FEATURE=="genes")
 genes.df <- droplevels(genes.df)
 str(genes.df)
 
+table(genes.df$SPECIES, genes.df$TYPE)
+
 summary(genes.df$PROP) ## summary prop
 length(genes.df$PROP[genes.df$PROP==0]) ## how many zero values in total
 
@@ -99,6 +103,8 @@ TEs.df <- subset(all_data.df, all_data.df$FEATURE=="TEs")
 TEs.df <- droplevels(TEs.df)
 str(TEs.df)
 
+table(TEs.df$SPECIES, TEs.df$TYPE)
+
 summary(TEs.df$PROP) ## summary prop
 length(TEs.df$PROP[TEs.df$PROP==0]) ## how many zero values in total
 
@@ -112,20 +118,21 @@ mod.TEs <- lmer(TRANSFORMED ~ TYPE + (1|SPECIES), data=TEs.df)
 summary(mod.TEs)
 # Random effects:
 #   Groups   Name        Variance Std.Dev.
-#   SPECIES  (Intercept) 0.003446 0.05871 
-#   Residual             0.435177 0.65968 
+#   SPECIES  (Intercept) 0.003056 0.05528 
+#   Residual             0.426313 0.65293 
 # Number of obs: 2399, groups:  SPECIES, 2
 # 
 # Fixed effects:
 #               Estimate Std. Error         df t value Pr(>|t|)    
-# (Intercept)   -2.23280    0.04377    1.01048  -51.01    0.012 *  
-# TYPENRPS       0.70621    0.05728 2396.37515   12.33   <2e-16 ***
+# (Intercept)   -2.24721    0.04143    1.01146  -54.23   0.0112 *  
+# TYPENRPS       0.70951    0.70951 2396.08123   12.52   <2e-16 ***
 # ---
 # Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
 coef(summary(mod.TEs))
-#              Estimate Std. Error          df   t value     Pr(>|t|)
-# (Intercept) -2.232799 0.04377186    1.010478 -51.00991 1.199972e-02
-# TYPENRPS     0.706207 0.05727591 2396.375154  12.32991 6.518640e-34
+#               Estimate Std. Error          df   t value     Pr(>|t|)
+# (Intercept) -2.2472095 0.04143436    1.011463 -54.23542 1.123691e-02
+# TYPENRPS     0.7095118 0.05668758 2396.081228  12.51618 7.313281e-35
 
 ##
 ## interpretation: 

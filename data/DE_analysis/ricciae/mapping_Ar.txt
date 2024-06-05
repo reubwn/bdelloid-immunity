@@ -1,0 +1,5 @@
+salmon-DESeq2/salmon_Ar.isoform.counts.matrix.AD1Y7_vs_AD1X7.DESeq2.DE_results	t7
+salmon-DESeq2/salmon_Ar.isoform.counts.matrix.AD1Y24_vs_AD1X24.DESeq2.DE_results	t24
+salmon-DESeq2/pairwise_contrasts/salmon_Ar.isoform.counts.matrix.AD1X24_vs_AD1X7.DESeq2.DE_results	control
+HGT_filter.txt	HGT
+BUSCO_genes.txt	BUSCO

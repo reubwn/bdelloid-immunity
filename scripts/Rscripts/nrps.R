@@ -202,4 +202,3 @@ plot.expression<-~{
   ## box
   box(bty="l", lwd=2)
 }
-

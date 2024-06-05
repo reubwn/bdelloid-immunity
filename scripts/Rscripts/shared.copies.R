@@ -43,7 +43,7 @@ cor.shared.Av.T7.within.down
 
 ## plot
 p1.Av.T7.within<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -88,7 +88,7 @@ cor.shared.Av.T24.within.down
 
 ## plot
 p2.Av.T24.within<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -132,7 +132,7 @@ cor.shared.Ar.T7.within.down
 
 ## plot
 p1.Ar.T7.within<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -173,7 +173,7 @@ cor.shared.Ar.T24.within.down
 
 ## plot
 p2.Ar.T24.within<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -226,7 +226,7 @@ nrow(subset(shared.T7.between, shared.T7.between$is.DE.g1==1 & shared.T7.between
 
 ## plot
 p1.T7.shared<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -272,7 +272,7 @@ cor.shared.T24.between.down
 
 ## plot
 p2.T24.shared<-~{
-  par(mar=c(3,3,1,0), oma=c(1,1,1,1))
+  par(mar=c(3,3,1,1), oma=c(1,1,0,0))
   par(tcl=-0.25)
   par(mgp=c(2,0.6,0))
   par(bty="n")
@@ -300,3 +300,6 @@ p2.T24.shared<-~{
 
 ## plot between
 plot_grid(p1.T7.shared,p2.T24.shared, labels="auto")
+
+## plot everything
+plot_grid(p1.Av.T7.within,p2.Av.T24.within,p1.Ar.T7.within,p2.Ar.T24.within,p1.T7.shared,p2.T24.shared, ncol=2, labels="auto")
